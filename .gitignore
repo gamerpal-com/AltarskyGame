@@ -1,0 +1,27 @@
+# Godot 4+ specific ignores
+.godot/
+.import/
+
+# Android builds
+/android/
+
+# iOS builds
+/ios/
+
+# Exported builds (PC, mobile, web)
+export/
+*.exe
+*.apk
+*.ipa
+*.zip
+
+# Temporary files
+*.tmp
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
