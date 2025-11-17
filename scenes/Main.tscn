@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dilxme6iwn3jk"]
+[gd_scene load_steps=2 format=3 uid="uid://dilxme6iwn3jk"]
+
+[ext_resource type="Script" uid="uid://tfr2bris6ula" path="res://scripts/main.gd" id="1_elqb8"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_elqb8")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -14,3 +17,14 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "AltarSky - WIP
 "
+
+[node name="AuthHTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="RefreshHTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="RefreshTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="request_completed" from="AuthHTTPRequest" to="." method="_on_auth_http_request_request_completed"]
+[connection signal="request_completed" from="RefreshHTTPRequest" to="." method="_on_refresh_http_request_request_completed"]
+[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
