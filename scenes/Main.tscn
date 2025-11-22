@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dilxme6iwn3jk"]
+[gd_scene load_steps=7 format=3 uid="uid://dilxme6iwn3jk"]
 
 [ext_resource type="Script" uid="uid://tfr2bris6ula" path="res://scripts/main.gd" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://cdfcx73fb31e6" path="res://scenes/player.tscn" id="2_rvslj"]
+[ext_resource type="Texture2D" uid="uid://bxndbo0urw1qd" path="res://assets/Bttn.tres" id="3_0bbpv"]
+[ext_resource type="Script" uid="uid://beqpvicflp38v" path="res://scripts/zoom_button.gd" id="4_rarhs"]
+[ext_resource type="Texture2D" uid="uid://4bcd7gtd1ngx" path="res://assets/DebugToggle.tres" id="5_c01mt"]
+[ext_resource type="Script" uid="uid://cvxrlt30usqcy" path="res://scripts/debug_button.gd" id="6_nxtc6"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -10,12 +15,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_elqb8")
+debug_show_zones = false
+z1_left = 0.2
+z1_right = 0.812
+z2_left = 0.244
+z2_right = 0.746
+z25_left = 0.226
+z25_right = 0.764
+z3_left = 0.184
+z3_right = 0.817
+m1_top = 75.0
+m1_bottom = 1.0
+m2_top = 75.0
+m2_bottom = 1.0
+m25_left = 15.0
+m25_right = 15.0
+m25_top = 75.0
+m25_bottom = 1.0
+m3_left = 10.0
+m3_right = 10.0
+m3_top = 70.0
+m3_bottom = 1.0
+s1_bottom = 1.0
+s2_bottom = 600.0
+s25_bottom = 150.0
+s3_bottom = 100.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "AltarSky - WIP
+offset_left = 402.0
+offset_top = 862.0
+offset_right = 689.0
+offset_bottom = 1120.0
+theme_override_font_sizes/font_size = 29
+text = "AltarSky - Pre Alpha
+Dev Build 
+Core Controls
 "
 
 [node name="AuthHTTPRequest" type="HTTPRequest" parent="."]
@@ -24,6 +59,86 @@ text = "AltarSky - WIP
 
 [node name="RefreshTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_rvslj")]
+z_index = 5
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+camera = NodePath("../Camera2D")
+zone_split_left = 0.43
+zone_split_right = 0.574
+bullet_speed = 400.0
+fire_interval = 1.0
+bullet_lifetime = 5.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(540, 960)
+limit_enabled = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ZoomLabel" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.0
+offset_top = 10.0
+offset_right = -5.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "ClickToZoom"
+
+[node name="ZoomButton" type="TextureButton" parent="UI"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 40.0
+offset_right = -15.0
+offset_bottom = 64.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_0bbpv")
+script = ExtResource("4_rarhs")
+
+[node name="ZoomStatus" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 120.0
+offset_right = -30.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="DebugButton" type="TextureButton" parent="UI"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 200.0
+offset_bottom = 64.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_c01mt")
+script = ExtResource("6_nxtc6")
+
+[node name="ToggleLabel" type="Label" parent="UI"]
+offset_left = 947.0
+offset_top = 172.0
+offset_right = 1077.0
+offset_bottom = 195.0
+text = "Toggle Debugger"
+
+[node name="ZoneStatus" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 278.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Zone:Middle"
 
 [connection signal="request_completed" from="AuthHTTPRequest" to="." method="_on_auth_http_request_request_completed"]
 [connection signal="request_completed" from="RefreshHTTPRequest" to="." method="_on_refresh_http_request_request_completed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjhc083fjkiky"]
+
+[ext_resource type="Script" uid="uid://pxank7ca20nt" path="res://scripts/bullet.gd" id="1_p1sfj"]
+[ext_resource type="Texture2D" uid="uid://bxgct55riudfi" path="res://assets/Projectiles/Player Bullet.png" id="2_4utqk"]
+
+[node name="Bullet" type="Node2D"]
+z_index = -1
+script = ExtResource("1_p1sfj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4utqk")

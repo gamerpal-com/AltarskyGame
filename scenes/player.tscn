@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdfcx73fb31e6"]
+
+[ext_resource type="Texture2D" uid="uid://dnyq7mehkbg4w" path="res://assets/Sprites/ImprovedFlight3-Sheet.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://3npk7dqpdr32" path="res://scripts/Player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://bjhc083fjkiky" path="res://scenes/Bullet.tscn" id="2_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"hover_idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D"]
+physics_interpolation_mode = 2
+script = ExtResource("1_g2els")
+move_speed = 1000.0
+margin_left = 15.0
+margin_right = 15.0
+margin_top = 100.0
+margin_bottom = 1.0
+bullet_scene = ExtResource("2_qhqgy")
+bullet_speed = 100.0
+fire_interval = 0.76
+bullet_lifetime = 2.0
+bullet_scale = 2.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"hover_idle"
+autoplay = "hover_idle"
+frame_progress = 0.9940371
