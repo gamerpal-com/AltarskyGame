@@ -90,7 +90,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				# detect double-click as SPECIAL 1
 				var now := Time.get_ticks_msec() * 0.001
 				if now - _last_primary_tap_time <= double_tap_max_delay:
-					print("SPECIAL 1: mouse double-click / single-finger double tap")
+					GlobalLogger.log("SPECIAL 1: single-finger double tap")
+
 					_last_primary_tap_time = -1.0
 				else:
 					_last_primary_tap_time = now
@@ -104,7 +105,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			# LEFT + RIGHT pressed together = SPECIAL 2
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				print("SPECIAL 2: mouse left+right combo / two-finger tap")
+				GlobalLogger.log("SPECIAL 2: mouse left+right combo / two-finger tap")
 
 	if event is InputEventMouseMotion and is_dragging:
 		var mouse_world: Vector2 = get_global_mouse_position()
@@ -140,7 +141,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif _active_touch_count == 2:
 				# two fingers became active within window → SPECIAL 2
 				if now_t - _last_two_finger_time <= two_finger_max_delay:
-					print("SPECIAL 2: two-finger tap")
+					GlobalLogger.log("SPECIAL 2: two-finger tap")
 				_last_two_finger_time = now_t
 		else:
 			# touch released
