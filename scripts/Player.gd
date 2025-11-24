@@ -34,6 +34,9 @@ var current_zone: int = Zone.MIDDLE
 @export_group("Special Input")
 @export var double_tap_max_delay: float = 0.25     # seconds between taps
 @export var two_finger_max_delay: float = 0.25
+# NEW: hard cap on bullets per second (for spam / macros)
+@export var max_shots_per_second: int = 15
+
 
 
 
@@ -45,7 +48,9 @@ var drag_offset: Vector2 = Vector2.ZERO
 # Shooting state
 var is_shooting: bool = false
 var _fire_cooldown: float = 0.0
-var shoot_timer: float = 0.0
+# 🔹 NEW: per-second cap bookkeeping
+var _shots_second_timer: float = 0.0
+var _shots_this_second: int = 0
 
 # Touch bookkeeping for shoot + special detection
 var _active_touch_count: int = 0
@@ -64,18 +69,12 @@ func set_zone_splits(left: float, right: float) -> void:
 func _ready() -> void:
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	print("Player ready() – movement script loaded. Camera:", camera)
+	# DO NOT set position here anymore.
+	# DO NOT call _update_zone() here.
+	# Main.gd handles all initial placement and zone initialization.
 
-	await get_tree().process_frame
-	var rect: Rect2 = get_viewport().get_visible_rect()
 
-	var start_x: float = rect.position.x + rect.size.x * 0.5
-	var start_y: float = rect.position.y + rect.size.y * 0.8
-	global_position = Vector2(start_x, start_y)
-	
-	# Make sure zone is correct from the very start
-	_update_zone()
-
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	# ---------- MOUSE (PC) ----------
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -182,7 +181,7 @@ func _process(delta: float) -> void:
 	if is_dragging:
 		moving = true
 
-	# (Optional) if you're tracking active touches, treat that as "moving/aiming"
+	# If you’re tracking active touches, that also counts as "moving/aiming"
 	if _active_touch_count > 0:
 		moving = true
 
@@ -191,15 +190,24 @@ func _process(delta: float) -> void:
 		is_shooting = true
 	else:
 		is_shooting = false
-		# reset cooldown so shots don't "buffer" while standing still
+		# reset cooldown + per-second counters so shots don't buffer
 		_fire_cooldown = 0.0
+		_shots_second_timer = 0.0
+		_shots_this_second = 0
+
+	# ---------- Per-second shot window (for spam/macro protection) ----------
+	_shots_second_timer += delta
+	if _shots_second_timer >= 1.0:
+		_shots_second_timer -= 1.0
+		_shots_this_second = 0
 
 	# ---------- Continuous firing while shooting ----------
-	if is_shooting and bullet_scene != null:
+	if is_shooting and bullet_scene != null and _shots_this_second < max_shots_per_second:
 		_fire_cooldown -= delta
 		if _fire_cooldown <= 0.0:
 			_fire_cooldown += fire_interval
 			_spawn_bullet()
+			_shots_this_second += 1
 
 
 
