@@ -176,6 +176,7 @@ offset_left = 231.0
 offset_top = 709.0
 offset_right = 905.0
 offset_bottom = 1522.0
+mouse_filter = 2
 theme_override_fonts/normal_font = SubResource("FontFile_nxtc6")
 theme_override_font_sizes/normal_font_size = 34
 
