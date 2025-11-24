@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bxgct55riudfi" path="res://assets/Projectiles/Player Bullet.png" id="2_4utqk"]
 
 [node name="Bullet" type="Node2D"]
-z_index = -1
 script = ExtResource("1_p1sfj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

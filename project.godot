@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/Global.gd"
 AuthManager="*res://scripts/AuthManager.gd"
+GlobalLogger="*res://scripts/Logger.gd"
 
 [display]
 
