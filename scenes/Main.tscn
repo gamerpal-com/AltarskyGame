@@ -169,6 +169,7 @@ offset_top = 198.0
 offset_right = 1001.0
 offset_bottom = 262.0
 grow_horizontal = 0
+focus_mode = 0
 texture_normal = ExtResource("3_0bbpv")
 script = ExtResource("4_rarhs")
 

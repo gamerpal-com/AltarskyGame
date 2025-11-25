@@ -56,7 +56,7 @@ var _two_finger_window_deadline: float = 0.0
 var _space_tap_count: int = 0
 var _space_window_deadline: float = 0.0
 
-@export var special_cooldown: float = 2.0 # seconds
+@export var special_cooldown: float = 1.0 # seconds
 var _special_cooldown_time_left: float = 0.0
 
 # ========= Zone setup from Main =========
@@ -101,7 +101,7 @@ func _trigger_special2(context: String) -> void:
 	# TODO: put your real Special 2 logic here
 
 # ========= INPUT =========
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	# ---------- MOUSE (PC) ----------
 	if event is InputEventMouseButton and not OS.has_feature("mobile"):
 		var mb := event as InputEventMouseButton
