@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dilxme6iwn3jk"]
+
+[ext_resource type="Script" uid="uid://tfr2bris6ula" path="res://scripts/_core/_main.gd" id="1_0lywy"]
+[ext_resource type="PackedScene" uid="uid://cdfcx73fb31e6" path="res://scenes/player.tscn" id="2_0k227"]
+[ext_resource type="PackedScene" uid="uid://drxb2kt5nyvfy" path="res://scenes/UI_Main.tscn" id="3_lo35w"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0lywy")
+debug_show_zones = false
+
+[node name="AuthHTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="RefreshHTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="RefreshTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_0k227")]
+z_index = 5
+move_speed = 500.0
+margin_left = 16.0
+margin_right = 16.0
+margin_top = 24.0
+margin_bottom = 96.0
+camera = NodePath("../Camera2D")
+bullet_speed = 600.0
+fire_interval = 1.0
+bullet_lifetime = 4.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(540, 960)
+limit_enabled = false
+
+[node name="UI" parent="." instance=ExtResource("3_lo35w")]
+
+[connection signal="request_completed" from="AuthHTTPRequest" to="." method="_on_auth_http_request_request_completed"]
+[connection signal="request_completed" from="RefreshHTTPRequest" to="." method="_on_refresh_http_request_request_completed"]
+[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]

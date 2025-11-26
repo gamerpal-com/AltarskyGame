@@ -7,3 +7,4 @@ func _ready() -> void:
 		print("Startup: loaded session from disk. User:", AuthManager.username, "Guest:", AuthManager.is_guest)
 	else:
 		print("Startup: no saved session, will guest-login when needed.")
+ 

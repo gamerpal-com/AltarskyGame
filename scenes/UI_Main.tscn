@@ -1,0 +1,157 @@
+[gd_scene load_steps=10 format=3 uid="uid://drxb2kt5nyvfy"]
+
+[ext_resource type="Texture2D" uid="uid://4bcd7gtd1ngx" path="res://assets/UI/DebugPanelAssets/DebugToggle.tres" id="1_4j5gp"]
+[ext_resource type="Script" uid="uid://cpod4e3v3x276" path="res://scripts/ui/UI.gd" id="1_mu6st"]
+[ext_resource type="Script" uid="uid://cvxrlt30usqcy" path="res://scripts/ui/debug_button.gd" id="2_tmkbg"]
+[ext_resource type="Texture2D" uid="uid://7yan2kvbj54e" path="res://assets/UI/DebugPanelAssets/ConsoleLogBTN.tres" id="3_mu6st"]
+[ext_resource type="Script" uid="uid://dl0tirkdh8er6" path="res://scripts/ui/DebugPanel.gd" id="3_tmkbg"]
+[ext_resource type="Texture2D" uid="uid://bxndbo0urw1qd" path="res://assets/UI/DebugPanelAssets/Bttn.tres" id="4_51dv4"]
+[ext_resource type="Script" uid="uid://beqpvicflp38v" path="res://scripts/ui/zoom_button.gd" id="5_mi4ci"]
+
+[sub_resource type="Theme" id="Theme_pvwbc"]
+
+[sub_resource type="FontFile" id="FontFile_4h1by"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_mu6st")
+
+[node name="DebugButton" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.0
+offset_top = 35.0
+offset_right = -26.0
+offset_bottom = 99.0
+grow_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("1_4j5gp")
+script = ExtResource("2_tmkbg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 281.0
+offset_top = 380.0
+offset_right = 875.0
+offset_bottom = 737.0
+theme_override_colors/font_color = Color(0.92941177, 1, 1, 0.6509804)
+theme_override_font_sizes/font_size = 50
+text = "AltarSky - Pre Alpha
+Dev Build 
+
+~Core Controls
+"
+
+[node name="ToggleLabel" type="Label" parent="."]
+offset_left = 941.0
+offset_top = 10.0
+offset_right = 1071.0
+offset_bottom = 33.0
+text = "Toggle Debugger"
+
+[node name="DebugPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_tmkbg")
+
+[node name="LogToggle" type="TextureButton" parent="DebugPanel"]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 340.0
+offset_right = 1042.0
+offset_bottom = 404.0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("3_mu6st")
+
+[node name="ConsoleLabel" type="Label" parent="DebugPanel/LogToggle"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 72.0
+offset_right = 93.0
+offset_bottom = 95.0
+text = "Enable Console"
+
+[node name="DebugLogBackdrop" type="ColorRect" parent="DebugPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = 681.0
+offset_right = 976.0
+offset_bottom = 1677.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.21568628, 0.1764706, 0.4509804, 0.8235294)
+
+[node name="DebugLogView" type="RichTextLabel" parent="DebugPanel"]
+visible = false
+layout_mode = 0
+offset_left = 231.00006
+offset_top = 709.0001
+offset_right = 905.00006
+offset_bottom = 1522.0001
+mouse_filter = 2
+theme = SubResource("Theme_pvwbc")
+theme_override_fonts/normal_font = SubResource("FontFile_4h1by")
+theme_override_font_sizes/normal_font_size = 34
+
+[node name="ZoomStatus" type="Label" parent="DebugPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 990.0
+offset_top = 120.0
+offset_right = 1010.0
+offset_bottom = 143.0
+grow_horizontal = 0
+
+[node name="ZoneStatus" type="Label" parent="DebugPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 923.0
+offset_top = 282.0
+offset_right = 1019.0
+offset_bottom = 305.0
+grow_horizontal = 0
+text = "Zone:Middle"
+
+[node name="ZoomButton" type="TextureButton" parent="DebugPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 936.0
+offset_top = 198.0
+offset_right = 1001.0
+offset_bottom = 262.0
+grow_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("4_51dv4")
+script = ExtResource("5_mi4ci")
+
+[node name="ZoomLabel" type="Label" parent="DebugPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 920.0
+offset_top = 168.0
+offset_right = 1020.0
+offset_bottom = 191.0
+grow_horizontal = 0
+text = "ClickToZoom"

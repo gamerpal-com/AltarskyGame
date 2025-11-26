@@ -91,14 +91,8 @@ var zoom_levels: Array[float] = []
 var zoom_index: int = 0
 
 # Zoom/Zone status labels
-@onready var zoom_status: Label = $UI/DebugPanel/ZoomStatus
-@onready var zone_status: Label = $UI/DebugPanel/ZoneStatus
-@onready var debug_panel: Control = $UI/DebugPanel
+@onready var ui: GameUI = $UI
 
-# Console log UI (simple)
-@onready var debug_log_view: RichTextLabel = $UI/DebugPanel/DebugLogView
-@onready var debug_log_backdrop: ColorRect = $UI/DebugPanel/DebugLogBackdrop
-@onready var debug_log_toggle: TextureButton = $UI/DebugPanel/LogToggle
 
 func _ready() -> void:
 	# --- Zoom setup ---
@@ -119,9 +113,8 @@ func _ready() -> void:
 
 	player.snap_to_bottom_center(get_snap_offset_for_current_zoom())
 
-	if zoom_status:
-		var z: float = zoom_levels[zoom_index]
-		zoom_status.text = "Zoom: " + str(z) + "x"
+	var z: float = zoom_levels[zoom_index]
+	ui.update_zoom_label(z)
 
 	player._update_zone()
 	var start_zone_text := "MIDDLE"
@@ -135,8 +128,8 @@ func _ready() -> void:
 
 	GlobalLogger.log("Player start zone: %s" % start_zone_text)
 
-	if zone_status:
-		zone_status.text = "Zone: " + start_zone_text
+	ui.update_zone_label(start_zone_text)
+
 
 	player.zone_changed.connect(_on_player_zone_changed)
 
@@ -149,24 +142,11 @@ func _ready() -> void:
 		_guest_login()
 
 	# --- Debug overlay & panel initial visibility ---
-	if debug_panel:
-		debug_panel.visible = debug_show_zones
+	ui.set_debug_visible(debug_show_zones)
 
-	if debug_log_view:
-		debug_log_view.visible = false
-	if debug_log_backdrop:
-		debug_log_backdrop.visible = false
 
-	if not is_instance_valid(debug_log_view):
-		GlobalLogger.log("Main._ready: ERROR – debug_log_view is null, cannot connect log stream.")
-	else:
-		GlobalLogger.log("Main._ready: connecting GlobalLogger.log_appended → _on_log_appended")
-		GlobalLogger.log_appended.connect(_on_log_appended)
 
-		debug_log_view.text = GlobalLogger.get_all_text()
-		var line_count := debug_log_view.get_line_count()
-		if line_count > 0:
-			debug_log_view.scroll_to_line(line_count - 1)
+	
 
 func _process(_delta: float) -> void:
 	apply_margins_for_current_zoom()
@@ -510,9 +490,7 @@ func _on_player_zone_changed(_old_zone: int, new_zone: int) -> void:
 			zone_name = "RIGHT"
 
 	GlobalLogger.log("Player moved into %s zone" % zone_name)
-
-	if zone_status:
-		zone_status.text = "Zone: " + zone_name
+	ui.update_zone_label(zone_name)
 
 # =========================
 #  BUTTON HELPERS
@@ -526,14 +504,14 @@ func cycle_zoom() -> void:
 	apply_zone_splits_for_current_zoom()
 	player.snap_to_bottom_center(get_snap_offset_for_current_zoom())
 
-	if zoom_status:
-		zoom_status.text = "Zoom: " + str(new_zoom) + "x"
+	ui.update_zoom_label(new_zoom)
 	GlobalLogger.log("Zoom switched to: %s" % str(new_zoom))
 
+
 func _update_zoom_status() -> void:
-	if zoom_status:
-		var current_zoom: float = zoom_levels[zoom_index]
-		zoom_status.text = "Zoom: " + str(current_zoom) + "x"
+	var current_zoom: float = zoom_levels[zoom_index]
+	ui.update_zoom_label(current_zoom)
+
 
 func toggle_debug_zones() -> void:
 	debug_show_zones = !debug_show_zones
@@ -545,37 +523,4 @@ func toggle_debug_zones() -> void:
 
 	GlobalLogger.log("Debug zones: %s" % state_text)
 
-	if debug_panel:
-		debug_panel.visible = debug_show_zones
-
-# =========================
-#  LOG VIEW / CONSOLE
-# =========================
-func _on_log_appended(_line: String) -> void:
-	print("DEBUG: _on_log_appended fired: ", _line)
-
-	if not is_instance_valid(debug_log_view):
-		return
-
-	debug_log_view.text = GlobalLogger.get_all_text()
-
-	var line_count := debug_log_view.get_line_count()
-	if line_count > 0:
-		debug_log_view.scroll_to_line(line_count - 1)
-
-func _on_LogToggle_toggled(pressed: bool) -> void:
-	GlobalLogger.log("LogToggle toggled: %s" % pressed)
-
-	if not is_instance_valid(debug_log_view):
-		return
-
-	debug_log_view.visible = pressed
-
-	if is_instance_valid(debug_log_backdrop):
-		debug_log_backdrop.visible = pressed
-
-	if pressed:
-		debug_log_view.text = GlobalLogger.get_all_text()
-		var line_count := debug_log_view.get_line_count()
-		if line_count > 0:
-			debug_log_view.scroll_to_line(line_count - 1)
+	ui.set_debug_visible(debug_show_zones)

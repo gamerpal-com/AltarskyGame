@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdfcx73fb31e6"]
 
 [ext_resource type="Texture2D" uid="uid://dnyq7mehkbg4w" path="res://assets/Sprites/ImprovedFlight3-Sheet.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://3npk7dqpdr32" path="res://scripts/Player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://3npk7dqpdr32" path="res://scripts/gameplay/Player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://bjhc083fjkiky" path="res://scenes/Bullet.tscn" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
@@ -57,7 +57,6 @@ bullet_scene = ExtResource("2_qhqgy")
 bullet_speed = 100.0
 fire_interval = 0.76
 bullet_lifetime = 2.0
-bullet_scale = 2.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

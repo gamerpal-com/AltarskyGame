@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://scripts/Global.gd"
-AuthManager="*res://scripts/AuthManager.gd"
-GlobalLogger="*res://scripts/Logger.gd"
+Global="*res://scripts/_core/Global.gd"
+AuthManager="*res://scripts/auth/AuthManager.gd"
+GlobalLogger="*res://scripts/_core/Logger.gd"
 
 [display]
 

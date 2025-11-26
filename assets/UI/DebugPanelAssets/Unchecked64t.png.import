@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e1grabb8w2r"
-path="res://.godot/imported/Unchecked.png-f49d01f419d13b594c56f8c984dd83fa.ctex"
+uid="uid://do4ecqkyq12pc"
+path="res://.godot/imported/Unchecked64t.png-b701057820bb2311bc073a1fd477571c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/Unchecked.png"
-dest_files=["res://.godot/imported/Unchecked.png-f49d01f419d13b594c56f8c984dd83fa.ctex"]
+source_file="res://assets/UI/DebugPanelAssets/Unchecked64t.png"
+dest_files=["res://.godot/imported/Unchecked64t.png-b701057820bb2311bc073a1fd477571c.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
