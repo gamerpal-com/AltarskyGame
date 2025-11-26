@@ -1,9 +1,9 @@
 extends Node
 class_name AuthService
 
-@onready var http: HTTPRequest = $"../AuthHTTPRequest"
-@onready var refresh_http: HTTPRequest = $"../RefreshHTTPRequest"
-@onready var refresh_timer: Timer = $"../RefreshTimer"
+@onready var http: HTTPRequest = $AuthHTTPRequest
+@onready var refresh_http: HTTPRequest = $RefreshHTTPRequest
+@onready var refresh_timer: Timer = $RefreshTimer
 
 const MIN_FORCE_REFRESH_THRESHOLD := 5
 const MIN_REFRESH_INTERVAL := 10

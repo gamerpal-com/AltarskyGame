@@ -20,12 +20,14 @@ debug_show_zones = false
 [node name="AuthService" type="Node" parent="."]
 script = ExtResource("2_rjr2r")
 
-[node name="AuthHTTPRequest" type="HTTPRequest" parent="."]
+[node name="AuthHTTPRequest" type="HTTPRequest" parent="AuthService"]
 
-[node name="RefreshHTTPRequest" type="HTTPRequest" parent="."]
+[node name="RefreshHTTPRequest" type="HTTPRequest" parent="AuthService"]
 
-[node name="RefreshTimer" type="Timer" parent="."]
+[node name="RefreshTimer" type="Timer" parent="AuthService"]
 one_shot = true
+
+[node name="UI" parent="." instance=ExtResource("3_lo35w")]
 
 [node name="ZoneOverlay" type="Node2D" parent="." node_paths=PackedStringArray("camera", "player", "main")]
 script = ExtResource("2_lo35w")
@@ -48,5 +50,3 @@ bullet_lifetime = 4.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(540, 960)
 limit_enabled = false
-
-[node name="UI" parent="." instance=ExtResource("3_lo35w")]
