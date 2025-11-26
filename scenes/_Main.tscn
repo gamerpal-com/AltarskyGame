@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dilxme6iwn3jk"]
+[gd_scene load_steps=6 format=3 uid="uid://dilxme6iwn3jk"]
 
 [ext_resource type="Script" uid="uid://tfr2bris6ula" path="res://scripts/_core/_main.gd" id="1_0lywy"]
 [ext_resource type="PackedScene" uid="uid://cdfcx73fb31e6" path="res://scenes/player.tscn" id="2_0k227"]
 [ext_resource type="Script" uid="uid://cnvopvjgvvr18" path="res://scripts/ui/ZoneOverlay.gd" id="2_lo35w"]
+[ext_resource type="Script" uid="uid://dnl3i2akbcbmj" path="res://scripts/auth/AuthService.gd" id="2_rjr2r"]
 [ext_resource type="PackedScene" uid="uid://drxb2kt5nyvfy" path="res://scenes/UI_Main.tscn" id="3_lo35w"]
 
 [node name="Main" type="Control"]
@@ -15,6 +16,9 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0lywy")
 debug_show_zones = false
+
+[node name="AuthService" type="Node" parent="."]
+script = ExtResource("2_rjr2r")
 
 [node name="AuthHTTPRequest" type="HTTPRequest" parent="."]
 
@@ -46,7 +50,3 @@ position = Vector2(540, 960)
 limit_enabled = false
 
 [node name="UI" parent="." instance=ExtResource("3_lo35w")]
-
-[connection signal="request_completed" from="AuthHTTPRequest" to="." method="_on_auth_http_request_request_completed"]
-[connection signal="request_completed" from="RefreshHTTPRequest" to="." method="_on_refresh_http_request_request_completed"]
-[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
