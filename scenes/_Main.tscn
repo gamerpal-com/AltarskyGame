@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dilxme6iwn3jk"]
+[gd_scene load_steps=5 format=3 uid="uid://dilxme6iwn3jk"]
 
 [ext_resource type="Script" uid="uid://tfr2bris6ula" path="res://scripts/_core/_main.gd" id="1_0lywy"]
 [ext_resource type="PackedScene" uid="uid://cdfcx73fb31e6" path="res://scenes/player.tscn" id="2_0k227"]
+[ext_resource type="Script" uid="uid://cnvopvjgvvr18" path="res://scripts/ui/ZoneOverlay.gd" id="2_lo35w"]
 [ext_resource type="PackedScene" uid="uid://drxb2kt5nyvfy" path="res://scenes/UI_Main.tscn" id="3_lo35w"]
 
 [node name="Main" type="Control"]
@@ -21,6 +22,12 @@ debug_show_zones = false
 
 [node name="RefreshTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ZoneOverlay" type="Node2D" parent="." node_paths=PackedStringArray("camera", "player", "main")]
+script = ExtResource("2_lo35w")
+camera = NodePath("../Camera2D")
+player = NodePath("../Player")
+main = NodePath("..")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_0k227")]
 z_index = 5

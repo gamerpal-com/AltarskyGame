@@ -155,7 +155,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	apply_margins_for_current_zoom()
 	apply_zone_splits_for_current_zoom()
-	queue_redraw()
+	# ZoneOverlay handles its own redraw now
+
 
 # =========================
 #  TOKEN REFRESH SCHEDULING
@@ -386,102 +387,6 @@ func apply_zone_splits_for_current_zoom() -> void:
 		3: player.set_zone_splits(z3_left, z3_right)
 		_: player.set_zone_splits(z1_left, z1_right)
 
-func _draw() -> void:
-	if not debug_show_zones:
-		return
-	if player == null or cam == null:
-		return
-
-	var rect: Rect2 = get_viewport().get_visible_rect()
-	var screen_size: Vector2 = rect.size
-
-	var z: Vector2 = cam.zoom
-	var half_w: float = (screen_size.x * 0.5) / z.x
-	var half_h: float = (screen_size.y * 0.5) / z.y
-
-	var cam_pos: Vector2 = cam.global_position
-	var world_left: float = cam_pos.x - half_w
-	var world_right: float = cam_pos.x + half_w
-	var world_top: float = cam_pos.y - half_h
-	var world_bottom: float = cam_pos.y + half_h
-	var height: float = world_bottom - world_top
-
-	var split1_x: float = lerp(world_left, world_right, player.zone_split_left)
-	var split2_x: float = lerp(world_left, world_right, player.zone_split_right)
-
-	var col_left := Color(0.0, 1.0, 1.0, 0.45)
-	var col_mid := Color(0.0, 1.0, 0.0, 0.45)
-	var col_right := Color(1.0, 0.0, 1.0, 0.45)
-
-	# left
-	draw_rect(
-		Rect2(
-			Vector2(world_left, world_top),
-			Vector2(split1_x - world_left, height)
-		),
-		col_left,
-		true
-	)
-
-	# middle
-	draw_rect(
-		Rect2(
-			Vector2(split1_x, world_top),
-			Vector2(split2_x - split1_x, height)
-		),
-		col_mid,
-		true
-	)
-
-	# right
-	draw_rect(
-		Rect2(
-			Vector2(split2_x, world_top),
-			Vector2(world_right - split2_x, height)
-		),
-		col_right,
-		true
-	)
-
-	var line_color := Color(1, 1, 1, 0.9)
-	draw_line(Vector2(split1_x, world_top), Vector2(split1_x, world_bottom), line_color, 3.0)
-	draw_line(Vector2(split2_x, world_top), Vector2(split2_x, world_bottom), line_color, 3.0)
-
-	var font := get_theme_default_font()
-	var font_size: int = get_theme_default_font_size()
-	if font:
-		var label_y: float = world_top + 24.0
-		var text_color := Color(1, 1, 1, 0.95)
-
-		draw_string(
-			font,
-			Vector2(world_left + 20.0, label_y),
-			"LEFT",
-			HORIZONTAL_ALIGNMENT_LEFT,
-			-1.0,
-			font_size,
-			text_color
-		)
-
-		draw_string(
-			font,
-			Vector2(split1_x + 20.0, label_y),
-			"MIDDLE",
-			HORIZONTAL_ALIGNMENT_LEFT,
-			-1.0,
-			font_size,
-			text_color
-		)
-
-		draw_string(
-			font,
-			Vector2(split2_x + 20.0, label_y),
-			"RIGHT",
-			HORIZONTAL_ALIGNMENT_LEFT,
-			-1.0,
-			font_size,
-			text_color
-		)
 
 func _on_player_zone_changed(_old_zone: int, new_zone: int) -> void:
 	var zone_name := "MIDDLE"
@@ -519,7 +424,6 @@ func _update_zoom_status() -> void:
 
 func toggle_debug_zones() -> void:
 	debug_show_zones = !debug_show_zones
-	queue_redraw()
 
 	var state_text := "OFF"
 	if debug_show_zones:
