@@ -130,7 +130,6 @@ func _ready() -> void:
 
 	ui.update_zone_label(start_zone_text)
 
-
 	player.zone_changed.connect(_on_player_zone_changed)
 
 	# --- Auth logic ---
@@ -144,9 +143,14 @@ func _ready() -> void:
 	# --- Debug overlay & panel initial visibility ---
 	ui.set_debug_visible(debug_show_zones)
 
+	# --- Connect UI button signals ---
+	if ui:
+		if not ui.zoom_button_pressed.is_connected(cycle_zoom):
+			ui.zoom_button_pressed.connect(cycle_zoom)
 
+		if not ui.debug_button_pressed.is_connected(toggle_debug_zones):
+			ui.debug_button_pressed.connect(toggle_debug_zones)
 
-	
 
 func _process(_delta: float) -> void:
 	apply_margins_for_current_zoom()
