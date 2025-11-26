@@ -1,4 +1,5 @@
 extends Node2D
+class_name Bullet
 
 var velocity: Vector2 = Vector2.ZERO
 var lifetime: float = 1.0

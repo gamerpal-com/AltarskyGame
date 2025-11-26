@@ -72,7 +72,6 @@ func _ready() -> void:
 
 # ========= INPUT HELPERS =========
 func _register_two_finger_tap(now: float) -> void:
-	# Ignore if on cooldown
 	if _special_cooldown_time_left > 0.0:
 		return
 
@@ -94,11 +93,9 @@ func _register_space_tap(now: float) -> void:
 
 func _trigger_special1(context: String) -> void:
 	GlobalLogger.log("SPECIAL 1: %s" % context)
-	# TODO: put your real Special 1 logic here
 
 func _trigger_special2(context: String) -> void:
 	GlobalLogger.log("SPECIAL 2: %s" % context)
-	# TODO: put your real Special 2 logic here
 
 # ========= INPUT =========
 func _input(event: InputEvent) -> void:
@@ -123,7 +120,7 @@ func _input(event: InputEvent) -> void:
 		var mouse_world2: Vector2 = get_global_mouse_position()
 		var target_pos: Vector2 = mouse_world2 + drag_offset
 		global_position = _clamp_to_screen(target_pos)
-		_update_zone()
+		update_zone()
 
 	# ---------- TOUCH (MOBILE) ----------
 	if event is InputEventScreenTouch:
@@ -141,7 +138,6 @@ func _input(event: InputEvent) -> void:
 			var touch_world: Vector2 = get_global_mouse_position()
 			drag_offset = global_position - touch_world
 
-			# SPECIALS (MOBILE): only two-finger taps matter
 			if _active_touch_count == 2:
 				_register_two_finger_tap(now_t)
 		else:
@@ -158,23 +154,20 @@ func _input(event: InputEvent) -> void:
 		var drag_world: Vector2 = get_global_mouse_position()
 		var target_pos_t: Vector2 = drag_world + drag_offset
 		global_position = _clamp_to_screen(target_pos_t)
-		_update_zone()
+		update_zone()
 
 # ========= PROCESS =========
 func _process(delta: float) -> void:
 	var now := Time.get_ticks_msec() * 0.001
 
-	# ---- PC specials via "special" action (Space, etc.) ----
 	if not OS.has_feature("mobile") and Input.is_action_just_pressed("special"):
 		_register_space_tap(now)
 
-	# --- Tick down special cooldown ---
 	if _special_cooldown_time_left > 0.0:
 		_special_cooldown_time_left -= delta
 		if _special_cooldown_time_left < 0.0:
 			_special_cooldown_time_left = 0.0
 
-	# --- Resolve mobile two-finger specials ---
 	if _two_finger_window_deadline > 0.0 and now >= _two_finger_window_deadline:
 		if _special_cooldown_time_left <= 0.0:
 			if _two_finger_tap_count == 1:
@@ -187,7 +180,6 @@ func _process(delta: float) -> void:
 		_two_finger_tap_count = 0
 		_two_finger_window_deadline = 0.0
 
-	# --- Resolve PC "special" action (space) specials ---
 	if _space_window_deadline > 0.0 and now >= _space_window_deadline:
 		if _special_cooldown_time_left <= 0.0:
 			if _space_tap_count == 1:
@@ -214,7 +206,7 @@ func _process(delta: float) -> void:
 			dir = dir.normalized()
 			var target := global_position + dir * move_speed * delta
 			global_position = _clamp_to_screen(target)
-			_update_zone()
+			update_zone()
 
 	if is_dragging:
 		moving = true
@@ -234,7 +226,6 @@ func _process(delta: float) -> void:
 		_shots_second_timer -= 1.0
 		_shots_this_second = 0
 
-	# Safety: warn if bullets should fire but no scene is assigned
 	if is_shooting and bullet_scene == null:
 		push_warning("Player: bullet_scene is null; assign a PackedScene in the inspector.")
 
@@ -281,7 +272,7 @@ func _clamp_to_screen(target_pos: Vector2) -> Vector2:
 	target_pos.y = clampf(target_pos.y, min_y, max_y)
 	return target_pos
 
-func _update_zone() -> void:
+func update_zone() -> void:
 	if camera == null:
 		return
 
@@ -338,7 +329,7 @@ func snap_to_bottom_center(offset_bottom: float = 20.0) -> void:
 
 	var target := Vector2(center_x, desired_y)
 	global_position = _clamp_to_screen(target)
-	_update_zone()
+	update_zone()
 
 # ========= Bullets =========
 func _spawn_bullet() -> void:

@@ -107,7 +107,7 @@ func _ready() -> void:
 	var z: float = zoom_levels[zoom_index]
 	ui.update_zoom_label(z)
 
-	player._update_zone()
+	player.update_zone()
 	var start_zone_text := "MIDDLE"
 	match player.current_zone:
 		player.Zone.LEFT:
