@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3fie17v47ijq"]
 
 [ext_resource type="Script" uid="uid://d3yh3spdhcrtf" path="res://scripts/gameplay/skycyclecontroller.gd" id="1_j8t2a"]
-[ext_resource type="Shader" uid="uid://cxoqlidu4uuux" path="res://scenes/SkyGradient.gdshader" id="2_ragpe"]
+[ext_resource type="Shader" uid="uid://hpj8nbfunfhh" path="res://shaders/sky/SkyGradient.gdshader" id="2_ragpe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wxerv"]
 shader = ExtResource("2_ragpe")
