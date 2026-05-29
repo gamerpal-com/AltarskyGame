@@ -2,9 +2,11 @@
 
 ## Overview
 
-This directory contains technical documentation for Altarsky’s engine systems, gameplay architecture, rendering pipeline, networking systems, and development workflows.
+This directory contains technical documentation for Altarsky's engine systems, gameplay architecture, rendering systems, networking, development workflows, and production planning.
 
-The project is currently transitioning from a 2D prototype into a custom 2.5D Sprite3D rendering pipeline using Godot 4.
+Altarsky is a 2D vertical-scrolling fantasy bullet-hell RPG built in Godot 4.
+
+The project focuses on atmospheric world-building through layered parallax backgrounds, floating sky kingdoms, dynamic day/night cycles, modular environmental systems, and pixel-art driven gameplay.
 
 ---
 
@@ -14,16 +16,16 @@ The project is currently transitioning from a 2D prototype into a custom 2.5D Sp
 Core engine subsystems and orchestration frameworks.
 
 ## rendering/
-Rendering architecture and visual pipeline documentation.
+Rendering architecture, sky systems, parallax systems, shaders, and visual effects.
 
 ## gameplay/
-Gameplay systems and player logic.
+Gameplay systems, combat systems, progression systems, enemies, bosses, and player mechanics.
 
 ## networking/
-Backend and authentication systems.
+Backend services, authentication systems, API integration, and account systems.
 
 ## art_pipeline/
-Pixel art standards and rendering specifications.
+Pixel art standards, animation guidelines, asset specifications, and production workflows.
 
 ## devlog/
 Internal development milestones and implementation history.
@@ -32,20 +34,27 @@ Internal development milestones and implementation history.
 
 # Current Engine Direction
 
-Altarsky is being developed around a custom 2.5D environmental rendering pipeline featuring:
+Altarsky uses a layered 2D rendering architecture built around:
 
-- Sprite3D environments
-- Layered atmospheric depth
-- Dynamic floating island streaming
-- Perspective-based parallax simulation
-- Pixel-art driven rendering
+- Multi-layer parallax environments
+- Dynamic day/night sky cycles
+- Procedural atmospheric effects
+- Floating island environments
+- Modular nebula and cloud systems
+- Pixel-art sprites and animation
+- Portrait-mode vertical scrolling gameplay
+
+The project is no longer pursuing the experimental 2.5D Sprite3D rendering pipeline.
 
 ---
 
 # Current Major Systems
 
-## Skyflow Director
-Environmental orchestration framework responsible for layered world streaming and atmospheric depth simulation.
+## Sky System
+Controls day/night transitions, atmospheric lighting, starfields, nebulae, cloud layers, fog effects, celestial bodies, and environmental mood.
+
+## World Streaming
+Manages spawning and movement of environmental layers, floating islands, structures, and atmospheric elements.
 
 ## Authentication Manager
 Handles user authentication and backend login state.
@@ -54,4 +63,12 @@ Handles user authentication and backend login state.
 Centralized debugging and logging framework.
 
 ## Player Controller
-Handles player movement, state management, combat states, and traversal systems.
+Handles movement, combat, abilities, animation state management, and gameplay interactions.
+
+---
+
+# Design Philosophy
+
+Altarsky prioritizes atmosphere, emotional pacing, visual depth, and memorable experiences over graphical realism.
+
+The goal is to create a dreamlike fantasy sky world filled with floating civilizations, cosmic vistas, exploration, and intense bullet-hell encounters.
