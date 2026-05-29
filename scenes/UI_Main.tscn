@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drxb2kt5nyvfy"]
+[gd_scene format=3 uid="uid://drxb2kt5nyvfy"]
 
 [ext_resource type="Texture2D" uid="uid://4bcd7gtd1ngx" path="res://assets/UI/DebugPanelAssets/DebugToggle.tres" id="1_4j5gp"]
 [ext_resource type="Script" uid="uid://cpod4e3v3x276" path="res://scripts/ui/UI.gd" id="1_mu6st"]
@@ -12,16 +12,25 @@
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=1005030545]
 script = ExtResource("1_mu6st")
 
-[node name="DebugButton" type="TextureButton" parent="."]
+[node name="DebugButton" type="TextureButton" parent="." unique_id=943859978]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -33,34 +42,21 @@ grow_horizontal = 0
 focus_mode = 0
 texture_normal = ExtResource("1_4j5gp")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 281.0
-offset_top = 380.0
-offset_right = 875.0
-offset_bottom = 737.0
-theme_override_colors/font_color = Color(0.92941177, 1, 1, 0.6509804)
-theme_override_font_sizes/font_size = 50
-text = "AltarSky - Pre Alpha
-Dev Build 
-
-~Core Controls
-"
-
-[node name="ToggleLabel" type="Label" parent="."]
+[node name="ToggleLabel" type="Label" parent="." unique_id=1591715713]
 offset_left = 941.0
 offset_top = 10.0
 offset_right = 1071.0
 offset_bottom = 33.0
 text = "Toggle Debugger"
 
-[node name="DebugPanel" type="Control" parent="."]
+[node name="DebugPanel" type="Control" parent="." unique_id=82522400]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_tmkbg")
 
-[node name="LogToggle" type="TextureButton" parent="DebugPanel"]
+[node name="LogToggle" type="TextureButton" parent="DebugPanel" unique_id=409527762]
 layout_mode = 0
 offset_left = 978.0
 offset_top = 340.0
@@ -70,7 +66,7 @@ focus_mode = 0
 toggle_mode = true
 texture_normal = ExtResource("3_mu6st")
 
-[node name="ConsoleLabel" type="Label" parent="DebugPanel/LogToggle"]
+[node name="ConsoleLabel" type="Label" parent="DebugPanel/LogToggle" unique_id=314486026]
 layout_mode = 0
 offset_left = -25.0
 offset_top = 72.0
@@ -78,7 +74,7 @@ offset_right = 93.0
 offset_bottom = 95.0
 text = "Enable Console"
 
-[node name="DebugLogBackdrop" type="ColorRect" parent="DebugPanel"]
+[node name="DebugLogBackdrop" type="ColorRect" parent="DebugPanel" unique_id=59539993]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +88,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.21568628, 0.1764706, 0.4509804, 0.8235294)
 
-[node name="DebugLogView" type="RichTextLabel" parent="DebugPanel"]
+[node name="DebugLogView" type="RichTextLabel" parent="DebugPanel" unique_id=1921814720]
 visible = false
 layout_mode = 0
 offset_left = 231.00006
@@ -104,7 +100,7 @@ theme = SubResource("Theme_pvwbc")
 theme_override_fonts/normal_font = SubResource("FontFile_4h1by")
 theme_override_font_sizes/normal_font_size = 34
 
-[node name="ZoomStatus" type="Label" parent="DebugPanel"]
+[node name="ZoomStatus" type="Label" parent="DebugPanel" unique_id=1932540352]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -115,7 +111,7 @@ offset_right = 1010.0
 offset_bottom = 143.0
 grow_horizontal = 0
 
-[node name="ZoneStatus" type="Label" parent="DebugPanel"]
+[node name="ZoneStatus" type="Label" parent="DebugPanel" unique_id=373757858]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -127,7 +123,7 @@ offset_bottom = 305.0
 grow_horizontal = 0
 text = "Zone:Middle"
 
-[node name="ZoomButton" type="TextureButton" parent="DebugPanel"]
+[node name="ZoomButton" type="TextureButton" parent="DebugPanel" unique_id=1065140648]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -140,7 +136,7 @@ grow_horizontal = 0
 focus_mode = 0
 texture_normal = ExtResource("4_51dv4")
 
-[node name="ZoomLabel" type="Label" parent="DebugPanel"]
+[node name="ZoomLabel" type="Label" parent="DebugPanel" unique_id=967782681]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
