@@ -1,7 +1,29 @@
+# ============================================================
+# SkyCycleController
+#
+# Controls ALTARSKY's global atmospheric lighting system.
+#
+# Responsibilities:
+# - Day/Night cycle timing
+# - Sky color transitions
+# - Gradient shader updates
+# - Horizon lighting
+# - Player ambient tinting
+#
+# The sky is rendered in its own CanvasLayer so it remains
+# independent from camera zoom and gameplay systems.
+# ============================================================
+
 extends Control
 
+# References to the ColorRects used by the sky system.
 @onready var background_color: ColorRect = $BackgroundColor
-@onready var gradient_overlay: ColorRect = $GradientOverlay
+@onready var gradient_overlay: ColorRect = $LightingGradientOverlay
+
+
+# ============================================================
+# Cycle Durations
+# ============================================================
 
 @export_group("Cycle Durations")
 @export var morning_duration := 5.0
@@ -9,11 +31,21 @@ extends Control
 @export var sunset_duration := 5.0
 @export var night_duration := 5.0
 
+
+# ============================================================
+# Base Sky Colors
+# ============================================================
+
 @export_group("Base Sky Colors")
 @export var morning_base := Color("#7FB9FF")
 @export var day_base := Color("#3F8CFF")
 @export var sunset_base := Color("#5B3A8C")
 @export var night_base := Color("#07152F")
+
+
+# ============================================================
+# Gradient Top Colors
+# ============================================================
 
 @export_group("Gradient Top Colors")
 @export var morning_top := Color("#8FCBFF")
@@ -21,11 +53,21 @@ extends Control
 @export var sunset_top := Color("#39245F")
 @export var night_top := Color("#061022")
 
+
+# ============================================================
+# Gradient Middle Colors
+# ============================================================
+
 @export_group("Gradient Middle Colors")
 @export var morning_middle := Color("#78B8FF")
 @export var day_middle := Color("#70C8FF")
 @export var sunset_middle := Color("#63406D")
 @export var night_middle := Color("#101C3A")
+
+
+# ============================================================
+# Gradient Horizon Colors
+# ============================================================
 
 @export_group("Gradient Horizon Colors")
 @export var morning_horizon := Color("#FFD6A0")
@@ -33,20 +75,36 @@ extends Control
 @export var sunset_horizon := Color("#F08A4B")
 @export var night_horizon := Color("#203F7A")
 
+
+# ============================================================
+# Gradient Bottom Colors
+# ============================================================
+
 @export_group("Gradient Bottom Colors")
 @export var morning_bottom := Color("#FFE8BC")
 @export var day_bottom := Color("#BFEFFF")
 @export var sunset_bottom := Color("#D77A55")
 @export var night_bottom := Color("#1B356B")
 
+
+# ============================================================
+# Gradient Shape
+#
+# horizon_position controls where the glow band appears.
+# horizon_strength controls how tight or broad the glow feels.
+# ============================================================
+
 @export_group("Gradient Shape")
 @export_range(0.0, 1.0) var horizon_position := 0.60
 @export_range(0.1, 4.0) var horizon_strength := 1.35
 
-##Player lighting references
+
+# ============================================================
+# Player Ambient Tint
+# ============================================================
+
 @export var player_path: NodePath
 @onready var player: Node2D = get_node_or_null(player_path)
-var time_in_cycle := 0.0
 
 @export_group("Player Ambient Tint")
 @export var morning_player_tint := Color("#FFF2D6")
@@ -55,11 +113,13 @@ var time_in_cycle := 0.0
 @export var night_player_tint := Color("#7F9BD8")
 
 
+# Current position within the full day/night cycle.
+var time_in_cycle := 0.0
+
+
 func _ready() -> void:
 	_apply_sky_colors()
 
-func _get_player_tint(t: float) -> Color:
-	return _phase_lerp(t, morning_player_tint, day_player_tint, sunset_player_tint, night_player_tint)
 
 func _process(delta: float) -> void:
 	var total_duration := _get_total_duration()
@@ -119,6 +179,11 @@ func _get_bottom_color(t: float) -> Color:
 	return _phase_lerp(t, morning_bottom, day_bottom, sunset_bottom, night_bottom)
 
 
+func _get_player_tint(t: float) -> Color:
+	return _phase_lerp(t, morning_player_tint, day_player_tint, sunset_player_tint, night_player_tint)
+
+
+# Shared interpolation helper used by all sky color systems.
 func _phase_lerp(t: float, morning: Color, day: Color, sunset: Color, night: Color) -> Color:
 	var morning_safe: float = maxf(morning_duration, 0.001)
 	var day_safe: float = maxf(day_duration, 0.001)

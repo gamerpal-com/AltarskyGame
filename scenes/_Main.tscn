@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://tfr2bris6ula" path="res://scripts/_core/_main.gd" id="1_0lywy"]
 [ext_resource type="PackedScene" uid="uid://cdfcx73fb31e6" path="res://scenes/player.tscn" id="2_0k227"]
-[ext_resource type="PackedScene" uid="uid://3fie17v47ijq" path="res://scenes/SkySystem.tscn" id="2_g7mv8"]
+[ext_resource type="PackedScene" uid="uid://3fie17v47ijq" path="res://scenes/SkyLightSystem.tscn" id="2_g7mv8"]
 [ext_resource type="Script" uid="uid://cnvopvjgvvr18" path="res://scripts/ui/ZoneOverlay.gd" id="2_lo35w"]
 [ext_resource type="Script" uid="uid://dnl3i2akbcbmj" path="res://scripts/auth/AuthService.gd" id="2_rjr2r"]
+[ext_resource type="PackedScene" uid="uid://d0u5cnt3omnp" path="res://scenes/SkyLayerSystem.tscn" id="3_g7mv8"]
 [ext_resource type="PackedScene" uid="uid://drxb2kt5nyvfy" path="res://scenes/UI_Main.tscn" id="3_lo35w"]
 
 [node name="Main" type="Control" unique_id=969828409]
@@ -18,15 +19,15 @@ mouse_filter = 2
 script = ExtResource("1_0lywy")
 debug_show_zones = false
 
-[node name="CanvasLayer_Background" type="CanvasLayer" parent="." unique_id=1430442684]
-layer = -10
+[node name="CanvasLayer_SkyLighting" type="CanvasLayer" parent="." unique_id=1430442684]
+layer = -30
 
-[node name="SkySystem" parent="CanvasLayer_Background" unique_id=1521399929 instance=ExtResource("2_g7mv8")]
-morning_duration = 3.0
-day_duration = 3.0
-sunset_duration = 3.0
-night_duration = 3.0
-player_path = NodePath("../../Player")
+[node name="SkyLightSystem" parent="CanvasLayer_SkyLighting" unique_id=1521399929 instance=ExtResource("2_g7mv8")]
+
+[node name="CanvasLayer_SkyLayering" type="CanvasLayer" parent="." unique_id=1478875170]
+layer = -20
+
+[node name="SkyLayerSystem" parent="CanvasLayer_SkyLayering" unique_id=1509887214 instance=ExtResource("3_g7mv8")]
 
 [node name="AuthService" type="Node" parent="." unique_id=1521293163]
 script = ExtResource("2_rjr2r")

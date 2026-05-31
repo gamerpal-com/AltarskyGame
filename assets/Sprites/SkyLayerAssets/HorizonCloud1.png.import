@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnyq7mehkbg4w"
-path="res://.godot/imported/ImprovedFlight3-Sheet.png-2bff1ca39cf6af364cb24450262c6604.ctex"
+uid="uid://4xkagnq6p6uo"
+path="res://.godot/imported/HorizonCloud1.png-d721837dd35c324c76dd42de8e277cb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/ImprovedFlight3-Sheet.png"
-dest_files=["res://.godot/imported/ImprovedFlight3-Sheet.png-2bff1ca39cf6af364cb24450262c6604.ctex"]
+source_file="res://assets/Sprites/SkyLayerAssets/HorizonCloud1.png"
+dest_files=["res://.godot/imported/HorizonCloud1.png-d721837dd35c324c76dd42de8e277cb9.ctex"]
 
 [params]
 

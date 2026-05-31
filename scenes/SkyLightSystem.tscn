@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3fie17v47ijq"]
 
-[ext_resource type="Script" uid="uid://d3yh3spdhcrtf" path="res://scripts/gameplay/skycyclecontroller.gd" id="1_j8t2a"]
+[ext_resource type="Script" uid="uid://d3yh3spdhcrtf" path="res://scripts/gameplay/skybackgroundscripts/SkyLightCycleController.gd" id="1_j8t2a"]
 [ext_resource type="Shader" uid="uid://hpj8nbfunfhh" path="res://shaders/sky/SkyGradient.gdshader" id="2_ragpe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wxerv"]
@@ -12,7 +12,7 @@ shader_parameter/bottom_color = Color(0.8, 0.9, 1, 1)
 shader_parameter/horizon_position = 0.72
 shader_parameter/horizon_strength = 1.35
 
-[node name="SkySystem" type="Control" unique_id=1521399929]
+[node name="SkyLightSystem" type="Control" unique_id=1521399929]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GradientOverlay" type="ColorRect" parent="." unique_id=1527712661]
+[node name="LightingGradientOverlay" type="ColorRect" parent="." unique_id=1527712661]
 material = SubResource("ShaderMaterial_wxerv")
 layout_mode = 1
 anchors_preset = 15

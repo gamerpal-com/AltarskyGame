@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bji77glclprym"
-path="res://.godot/imported/96X96charactert.png-07e645f1acab2573d146c1144b10c4c3.ctex"
+uid="uid://dejwu5tty0lfu"
+path="res://.godot/imported/ForegroundCloud5.png-1c94efd72defc9477811bbe73e6d9790.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/96X96charactert.png"
-dest_files=["res://.godot/imported/96X96charactert.png-07e645f1acab2573d146c1144b10c4c3.ctex"]
+source_file="res://assets/Sprites/SkyLayerAssets/ForegroundCloud5.png"
+dest_files=["res://.godot/imported/ForegroundCloud5.png-1c94efd72defc9477811bbe73e6d9790.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

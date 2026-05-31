@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://d0u5cnt3omnp"]
+
+[ext_resource type="Script" uid="uid://dm1vdo2ti77dg" path="res://scripts/gameplay/skybackgroundscripts/SkyLayerSystem.gd" id="1_l58vj"]
+[ext_resource type="Script" uid="uid://dicusyipacvm1" path="res://scripts/gameplay/skybackgroundscripts/SkyLayer.gd" id="2_ifa0y"]
+[ext_resource type="Texture2D" uid="uid://81uowpvnr5q0" path="res://assets/Sprites/SkyLayerAssets/ForegroundCloud1.png" id="3_mlhr3"]
+[ext_resource type="Texture2D" uid="uid://7d5etcmecptc" path="res://assets/Sprites/SkyLayerAssets/MidGroundCloud2.png" id="5_phqpd"]
+[ext_resource type="Texture2D" uid="uid://mgvw05ro7k4i" path="res://assets/Sprites/SkyLayerAssets/HorizonCloud4.png" id="7_7vbia"]
+
+[node name="SkyLayerSystem" type="Control" unique_id=488831138]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l58vj")
+
+[node name="Layer10Foregroundcloud" type="Control" parent="." unique_id=198386279]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ifa0y")
+layer_id = 30
+scroll_direction = Vector2(0.4, 1)
+scroll_speed = 110.0
+min_scale = 0.9
+max_scale = 1.45
+min_opacity = 0.45
+max_opacity = 0.85
+spawn_spread = 1200.0
+min_spawn_distance = 800.0
+spawn_jitter = 0.15
+max_active_assets = 4
+
+[node name="CloudPrototype" type="TextureRect" parent="Layer10Foregroundcloud" unique_id=1310910781]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_mlhr3")
+
+[node name="Layer20Midclouds" type="Control" parent="." unique_id=1470050838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ifa0y")
+layer_id = 20
+scroll_direction = Vector2(-0.3, 1)
+scroll_speed = 45.0
+min_scale = 0.55
+max_scale = 0.85
+min_opacity = 0.35
+max_opacity = 0.7
+max_active_assets = 7
+
+[node name="CloudPrototype" type="TextureRect" parent="Layer20Midclouds" unique_id=153602220]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_phqpd")
+
+[node name="Layer30farclouds3" type="Control" parent="." unique_id=795070887]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ifa0y")
+scroll_direction = Vector2(0.2, 1)
+scroll_speed = 25.0
+min_scale = 0.25
+max_scale = 0.35
+min_opacity = 0.2
+max_opacity = 0.45
+max_active_assets = 6
+
+[node name="CloudPrototype" type="TextureRect" parent="Layer30farclouds3" unique_id=1795829533]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_7vbia")
