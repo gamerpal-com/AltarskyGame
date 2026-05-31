@@ -1,3 +1,5 @@
+
+````markdown
 # Pre-Alpha 0.1 Development History
 
 This document records the major development phases completed during construction of the first AltarSky playable prototype.
@@ -8,7 +10,7 @@ For current release requirements, see:
 
 ```text
 docs/release_tracker/pre_alpha_0_1.md
-```
+````
 
 For current development work, see:
 
@@ -218,3 +220,6 @@ A player should be able to:
 * Persist high score data
 
 The purpose of Pre-Alpha 0.1 is to demonstrate the core vision of AltarSky through a complete but minimal gameplay loop.
+
+```
+```
