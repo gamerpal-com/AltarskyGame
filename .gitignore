@@ -26,3 +26,8 @@ desktop.ini
 # Logs
 *.log
 .vscode/
+
+# Android / prototype export artifacts
+*.apk
+*.idsig
+Exports/
