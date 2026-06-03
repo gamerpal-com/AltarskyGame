@@ -3,7 +3,7 @@
 > Documentation maintenance note:
 > If this document is updated, also review and update:
 >
-> - `docs/00_ReadMeFirst/00_documentation_guide.md` — this file; keep the documentation rules accurate.
+> - `docs/00_ReadMeFirst/01_documentation_guide.md` — this file; keep the documentation rules accurate.
 > - `docs/sprints/current_sprint.md` — update if documentation rules affect current sprint workflow or required documentation tasks.
 > - `docs/release_tracker/pre_alpha_0_1.md` — update if documentation requirements affect Pre-Alpha 0.1 completion criteria.
 > - Any newly created document — every new document must include its own `Documentation maintenance note`.
@@ -88,7 +88,7 @@ related docs
 Prefer exact paths such as:
 
 ```text
-docs/00_ReadMeFirst/00_documentation_guide.md
+docs/00_ReadMeFirst/01_documentation_guide.md
 docs/sprints/current_sprint.md
 docs/release_tracker/pre_alpha_0_1.md
 docs/systems/skyflow_director.md
@@ -143,7 +143,7 @@ This folder should stay small.
 
 Current docs:
 
-- `docs/00_ReadMeFirst/00_documentation_guide.md`
+- `docs/00_ReadMeFirst/01_documentation_guide.md`
 
 This folder answers:
 
@@ -410,7 +410,7 @@ Do not put session history only in the system doc.
 
 When creating a new system document, also check:
 
-- `docs/00_ReadMeFirst/00_documentation_guide.md`
+- `docs/00_ReadMeFirst/01_documentation_guide.md`
 - `docs/release_tracker/pre_alpha_0_1.md`
 - `docs/sprints/current_sprint.md`
 - Related system docs
@@ -421,7 +421,7 @@ Example:
 
 If `docs/systems/player_soul_core.md` is created or updated, review:
 
-- `docs/00_ReadMeFirst/00_documentation_guide.md`
+- `docs/00_ReadMeFirst/01_documentation_guide.md`
 - `docs/release_tracker/pre_alpha_0_1.md`
 - `docs/sprints/current_sprint.md`
 - `docs/game_flow/gameplay.md`

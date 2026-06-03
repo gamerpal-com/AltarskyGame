@@ -234,7 +234,7 @@ This sprint temporarily includes documentation infrastructure cleanup and develo
   - `docs/release_tracker/`
   - `docs/sprints/`
   - `docs/systems/`
-- [x] Fixed `docs/00_ReadMeFirst/00_documentation_guide.md` Markdown structure.
+- [x] Fixed `docs/00_ReadMeFirst/01_documentation_guide.md` Markdown structure.
 - [x] Committed documentation structure cleanup separately from code changes.
 - [x] Split remaining code/scene work into clean commits.
 

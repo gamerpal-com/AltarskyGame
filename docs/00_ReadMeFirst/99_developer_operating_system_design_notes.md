@@ -3,7 +3,7 @@
 > Documentation maintenance note:
 > If this document is updated, also review and update the related documentation listed below when the change affects that area:
 >
-> - `docs/00_ReadMeFirst/00_documentation_guide.md` — update if documentation rules, folder structure, naming rules, maintenance-note rules, template rules, or no-orphan-doc rules change.
+> - `docs/00_ReadMeFirst/01_documentation_guide.md` — update if documentation rules, folder structure, naming rules, maintenance-note rules, template rules, or no-orphan-doc rules change.
 > - `docs/00_ReadMeFirst/00_start_here.md` — update after it is created if top-level routing, first questions, hat onboarding, project onboarding, or AI entry behavior changes.
 > - `docs/00_ReadMeFirst/01_documentation_guide.md` — update after the existing guide is renamed/split if documentation rules or folder glossary rules change.
 > - `docs/00_ReadMeFirst/02_project_document_map.md` — update after it is created if document relationships, document purposes, project-state sources, history/now/future routing, or document feed rules change.
@@ -1498,7 +1498,7 @@ Only Development Systems Architect should approve and integrate operating-system
 
 These need decisions before or during final doc creation:
 
-- Should `docs/00_ReadMeFirst/00_documentation_guide.md` be renamed to `docs/00_ReadMeFirst/01_documentation_guide.md`?
+- Should `docs/00_ReadMeFirst/01_documentation_guide.md` be renamed to `docs/00_ReadMeFirst/01_documentation_guide.md`?
 - Should this design-notes file remain after final docs exist, or should it be archived as a devlog/design-history document?
 - Should idea capture start as a section inside `current_sprint.md` or as a separate `docs/planning/idea_inbox.md`?
 - Should the first template folder include only `current_sprint_template.md`, or also `session_log_template.md`?
