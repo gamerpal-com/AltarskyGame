@@ -34,6 +34,26 @@ extends Control
 # This is now the fixed pool size for this layer.
 @export var max_active_assets := 5
 
+# ============================================================
+# Per-Asset Movement
+#
+# Allows each spawned object to have its own movement behavior.
+#
+# Example:
+# - Clouds can gently drift left or right.
+# - Islands can disable horizontal drift and move only vertically.
+# ============================================================
+
+@export_group("Per-Asset Movement")
+@export var use_per_asset_movement := true
+
+@export var allow_horizontal_drift := true
+@export_range(0.0, 1.0) var inward_drift_chance := 0.85
+@export var horizontal_drift_strength := 0.35
+
+@export var allow_speed_variance := true
+@export var min_asset_speed_multiplier := 0.85
+@export var max_asset_speed_multiplier := 1.15
 
 func _ready() -> void:
 	z_index = layer_id
@@ -45,15 +65,22 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var movement := scroll_direction.normalized() * scroll_speed * delta
-
 	for child in get_children():
 		if child == prototype:
 			continue
 
-		child.position += movement
-		_recycle_if_needed(child)
+		var asset_direction: Vector2 = child.get_meta(
+			"move_direction",
+			scroll_direction.normalized()
+		)
 
+		var asset_speed_multiplier: float = child.get_meta(
+			"speed_multiplier",
+			1.0
+		)
+
+		child.position += asset_direction * scroll_speed * asset_speed_multiplier * delta
+		_recycle_if_needed(child)
 
 ## Creates the fixed scrolling pool and spreads assets across the movement path.
 func _spawn_initial_pool() -> void:
@@ -65,7 +92,7 @@ func _spawn_initial_pool() -> void:
 
 		_randomize_asset(instance)
 		instance.position = _get_seeded_spawn_position(i, max_active_assets, instance)
-
+		_assign_asset_movement(instance)
 
 ### Spreads initial assets across the full travel path to prevent spawn gaps.
 func _get_seeded_spawn_position(index: int, total: int, node: Control) -> Vector2:
@@ -100,7 +127,7 @@ func _get_seeded_spawn_position(index: int, total: int, node: Control) -> Vector
 
 	return Vector2(x, _get_random_y_for_node(node))
 
-    ##tracks spawn position of objects
+	##tracks spawn position of objects
 func _get_spawn_position(node: Control) -> Vector2:
 	for attempt in range(max_spawn_attempts):
 		var pos := _get_raw_spawn_position(node)
@@ -172,21 +199,25 @@ func _recycle_if_needed(node: Control) -> void:
 	if dir.x > 0.0 and node.position.x > right_limit:
 		_randomize_asset(node)
 		node.position = _get_spawn_position(node)
+		_assign_asset_movement(node)
 		return
 
 	if dir.x < 0.0 and node.position.x < left_limit:
 		_randomize_asset(node)
 		node.position = _get_spawn_position(node)
+		_assign_asset_movement(node)
 		return
 
 	if dir.y > 0.0 and node.position.y > bottom_limit:
 		_randomize_asset(node)
 		node.position = _get_spawn_position(node)
+		_assign_asset_movement(node)
 		return
 
 	if dir.y < 0.0 and node.position.y < top_limit:
 		_randomize_asset(node)
 		node.position = _get_spawn_position(node)
+		_assign_asset_movement(node)
 		return
 
 
@@ -201,7 +232,7 @@ func _randomize_asset(node: Control) -> void:
 		-max_rotation_degrees,
 		max_rotation_degrees
 	)
-    
+	
 ## Minimal distance tracking between spawned objects
 func _is_too_close_to_other_assets(pos: Vector2, min_distance: float) -> bool:
 	for child in get_children():
@@ -218,6 +249,105 @@ func _is_too_close_to_other_assets(pos: Vector2, min_distance: float) -> bool:
 			return true
 
 	return false
+
+	# ============================================================
+# Per-Asset Movement Assignment
+#
+# Called whenever an object is created or recycled.
+#
+# This gives each object its own movement direction and speed.
+# The layer still controls the overall behavior, but individual
+# assets can feel more natural.
+# ============================================================
+
+func _assign_asset_movement(node: Control) -> void:
+	var direction := scroll_direction.normalized()
+
+	if use_per_asset_movement and allow_horizontal_drift:
+		direction = _get_side_aware_asset_direction(node)
+
+	var speed_multiplier := 1.0
+
+	if allow_speed_variance:
+		speed_multiplier = randf_range(
+			min_asset_speed_multiplier,
+			max_asset_speed_multiplier
+		)
+
+	node.set_meta("move_direction", direction)
+	node.set_meta("speed_multiplier", speed_multiplier)
+
+
+# ============================================================
+# Side-Aware Asset Direction
+#
+# Uses ScreenZoneHelper to check where the object spawned:
+#
+# Left side   -> usually drift right
+# Middle      -> random left or right
+# Right side  -> usually drift left
+#
+# This prevents clouds from spawning near an edge and immediately
+# drifting off-screen.
+# ============================================================
+func _get_side_aware_asset_direction(node: Control) -> Vector2:
+	var base_direction := scroll_direction.normalized()
+
+	var center := _get_asset_center(node)
+
+	var zone := ScreenZoneHelper.get_horizontal_zone(
+		center.x,
+		spawn_area_width
+	)
+
+	var horizontal_direction := 0.0
+
+	match zone:
+		ScreenZoneHelper.HorizontalZone.LEFT:
+			horizontal_direction = 1.0 if randf() < inward_drift_chance else -1.0
+
+		ScreenZoneHelper.HorizontalZone.MIDDLE:
+			horizontal_direction = -1.0 if randf() < 0.5 else 1.0
+
+		ScreenZoneHelper.HorizontalZone.RIGHT:
+			horizontal_direction = -1.0 if randf() < inward_drift_chance else 1.0
+
+	var final_direction := Vector2(
+		horizontal_direction * horizontal_drift_strength,
+		base_direction.y
+	)
+
+	if final_direction == Vector2.ZERO:
+		return base_direction
+
+	return final_direction.normalized()
+
+	# ============================================================
+# Asset Center Position
+#
+# Control nodes use top-left positioning.
+#
+# That means node.position is not the middle of the cloud.
+# It is the upper-left corner.
+#
+# This helper finds the real center of the object, even when
+# the object has been scaled larger or smaller.
+#
+# Example:
+# If a cloud is 200px wide and scaled to 2.0,
+# it is visually 400px wide.
+#
+# Its center is:
+# position.x + 200
+# ============================================================
+
+func _get_asset_center(node: Control) -> Vector2:
+	var scaled_size := Vector2(
+		node.size.x * node.scale.x,
+		node.size.y * node.scale.y
+	)
+
+	return node.position + scaled_size * 0.5
 
 ## Returns the layer ID for layer conflict checking.
 func get_layer_id() -> int:
