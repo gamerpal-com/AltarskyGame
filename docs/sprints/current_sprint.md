@@ -194,7 +194,7 @@ Next action:
 - Verify diff.
 - Commit the sprint rebuild.
 - Continue Developer Operating System implementation/testing.
-- Then update related docs affected by `docs/systems/player_soul_core.md`.
+- Then review remaining planning docs affected by `docs/systems/player_soul_core.md`.
 
 ---
 
@@ -208,7 +208,7 @@ Tasks currently being worked on or approved for this sprint.
 - [ ] Test the `00_start_here.md` routing flow with simple prompts.
 - [ ] Test hat switching using `docs/00_ReadMeFirst/03_development_workflow.md`.
 - [ ] Decide whether Developer OS improvement notes stay in `current_sprint.md` or later move to `docs/planning/developer_os_improvement_backlog.md`.
-- [ ] Update related docs affected by the player soul core system.
+- [ ] Finish remaining player soul core planning-doc review: `docs/planning/roadmap.md` and `docs/planning/sky_time_map.md`.
 - [ ] Decide where idea capture belongs long-term: sprint doc, planning doc, or separate idea inbox.
 - [ ] Run initial AI validation tests before returning to game development.
 
@@ -277,6 +277,11 @@ Completed tasks should later feed devlogs, milestones, release tracker, systems 
 
 ### Developer Operating System / Documentation Work Completed
 
+- [x] Updated `docs/release_tracker/pre_alpha_0_1.md` with player soul core release-scope tracking.
+- [x] Updated `docs/00_ReadMeFirst/02_project_document_map.md` so `docs/systems/player_soul_core.md` is listed as a current system doc.
+- [x] Documented soul-core gameplay/death/sanctuary flow in `docs/game_flow/gameplay.md`, `docs/game_flow/home.md`, and `docs/game_flow/game_state_map.md`.
+- [x] Integrated soul-core rules into `docs/systems/player_controller.md`, `docs/systems/projectile_system.md`, and `docs/systems/ui_system.md`.
+- [x] Integrated soul-core readability rules into `docs/systems/skyflow_director.md`, `docs/systems/sky_depth_system.md`, and `docs/systems/sky_lighting_system.md`.
 - [x] Created and committed `docs/systems/player_soul_core.md`.
 - [x] Confirmed real Godot project path and fixed duplicate-folder confusion.
 - [x] Quarantined wrong duplicate folder.
@@ -563,44 +568,28 @@ Use this section when docs should be updated later instead of interrupting activ
 
 - Documentation TODO:
   - Reason:
-    - Integrate the newly created player soul core system doc into related docs.
+    - Finish remaining planning-doc review after player soul core documentation integration.
   - Affected docs:
-    - `docs/00_ReadMeFirst/02_project_document_map.md`
-    - `docs/sprints/current_sprint.md`
-    - `docs/release_tracker/pre_alpha_0_1.md`
-    - `docs/game_flow/gameplay.md`
-    - `docs/game_flow/home.md`
-    - `docs/game_flow/game_state_map.md`
-    - `docs/systems/player_controller.md`
-    - `docs/systems/projectile_system.md`
-    - `docs/systems/skyflow_director.md`
-    - `docs/systems/sky_depth_system.md`
-    - `docs/systems/sky_lighting_system.md`
-    - `docs/systems/ui_system.md`
     - `docs/planning/roadmap.md`
     - `docs/planning/sky_time_map.md`
   - Source hat:
     - Development Systems Architect
     - Documentation Architect
   - Review as:
+    - Project Manager
     - Documentation Architect
   - Status:
     - Open.
 
 - Documentation TODO:
   - Reason:
-    - Several placeholder docs need content or review.
+    - Remaining placeholder docs need content or review.
   - Affected docs:
     - `docs/game_flow/boot_flow.md`
-    - `docs/game_flow/gameplay.md`
-    - `docs/game_flow/game_state_map.md`
-    - `docs/game_flow/home.md`
     - `docs/game_flow/inventory.md`
     - `docs/game_flow/main_menu.md`
     - `docs/game_flow/paused.md`
     - `docs/planning/sky_time_map.md`
-    - `docs/systems/sky_depth_system.md`
-    - `docs/systems/skyflow_director.md`
   - Source hat:
     - Documentation Architect
   - Review as:
@@ -651,7 +640,7 @@ Long or historically important work should become a devlog under `docs/01_devlog
     - Use hats/work modes to control abstraction.
     - Use current sprint as temporary parking lot for ideas, OS improvements, and documentation TODOs.
   - Blockers:
-    - Player soul core doc has been created; related docs still need integration updates.
+    - Player soul core doc has been created and integrated into release tracker, game-flow docs, player/projectile/UI docs, and sky-system docs; remaining review is limited to planning docs.
     - Current sprint still needs validation after rebuild.
   - Ideas parked:
     - Future scene maps.
@@ -659,12 +648,12 @@ Long or historically important work should become a devlog under `docs/01_devlog
     - Future local helper tools.
     - Future dedicated idea inbox.
   - Documentation TODOs:
-    - Integrate player soul core doc into related docs.
-    - Update related docs.
+    - Review remaining planning docs affected by player soul core direction.
+    - Review `docs/planning/roadmap.md` and `docs/planning/sky_time_map.md`.
     - Review placeholder docs.
   - Next step:
     - Save and commit rebuilt `docs/sprints/current_sprint.md`.
-    - Then update related docs affected by `docs/systems/player_soul_core.md`.
+    - Then review remaining planning docs affected by `docs/systems/player_soul_core.md`.
 
 ---
 
