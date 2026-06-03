@@ -48,6 +48,16 @@ First Playable Sky-World Prototype
 
 ✓ Basic Animation Support
 
+✓ Player Soul Core design documented
+
+□ Soul core separated from player sprite if practical for Pre-Alpha 0.1
+
+□ Soul core readability validated over sky layers
+
+□ True hitbox behavior reviewed against projectile system
+
+□ Death / sanctuary return direction reviewed for Pre-Alpha 0.1 scope
+
 ---
 
 ## Camera & View
