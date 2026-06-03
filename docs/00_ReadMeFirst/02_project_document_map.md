@@ -1217,15 +1217,12 @@ Current system docs:
 - `docs/systems/debug_console.md`
 - `docs/systems/main_scene_controller.md`
 - `docs/systems/player_controller.md`
+- `docs/systems/player_soul_core.md`
 - `docs/systems/projectile_system.md`
 - `docs/systems/sky_depth_system.md`
 - `docs/systems/skyflow_director.md`
 - `docs/systems/sky_lighting_system.md`
 - `docs/systems/ui_system.md`
-
-Planned system docs:
-
-- `docs/systems/player_soul_core.md`
 
 System docs should be updated when the behavior, architecture, or responsibilities of a system change.
 
@@ -1253,7 +1250,6 @@ Current known gaps:
 
 - `docs/00_ReadMeFirst/03_development_workflow.md` does not exist yet.
 - `docs/00_ReadMeFirst/templates/current_sprint_template.md` does not exist yet.
-- `docs/systems/player_soul_core.md` needs to be recreated in the correct repo.
 - Several `docs/game_flow/` docs are placeholders.
 - `docs/planning/sky_time_map.md` is a placeholder.
 - `docs/systems/sky_depth_system.md` is a placeholder.

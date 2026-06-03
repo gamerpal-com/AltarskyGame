@@ -135,7 +135,7 @@ The following work is in scope for this sprint:
 - Remaining MVP blocker identification
 - Developer Operating System v1 setup before returning to game development
 - Current sprint restructure from `current_sprint_template.md`
-- Recreating `docs/systems/player_soul_core.md` in the correct repo
+- Integrating `docs/systems/player_soul_core.md` into related docs after creation
 - Updating docs related to player soul core and visual hierarchy after the core OS docs are stable
 
 ---
@@ -194,7 +194,7 @@ Next action:
 - Verify diff.
 - Commit the sprint rebuild.
 - Continue Developer Operating System implementation/testing.
-- Then recreate `docs/systems/player_soul_core.md`.
+- Then update related docs affected by `docs/systems/player_soul_core.md`.
 
 ---
 
@@ -208,7 +208,6 @@ Tasks currently being worked on or approved for this sprint.
 - [ ] Test the `00_start_here.md` routing flow with simple prompts.
 - [ ] Test hat switching using `docs/00_ReadMeFirst/03_development_workflow.md`.
 - [ ] Decide whether Developer OS improvement notes stay in `current_sprint.md` or later move to `docs/planning/developer_os_improvement_backlog.md`.
-- [ ] Recreate `docs/systems/player_soul_core.md` in the correct repo.
 - [ ] Update related docs affected by the player soul core system.
 - [ ] Decide where idea capture belongs long-term: sprint doc, planning doc, or separate idea inbox.
 - [ ] Run initial AI validation tests before returning to game development.
@@ -278,6 +277,7 @@ Completed tasks should later feed devlogs, milestones, release tracker, systems 
 
 ### Developer Operating System / Documentation Work Completed
 
+- [x] Created and committed `docs/systems/player_soul_core.md`.
 - [x] Confirmed real Godot project path and fixed duplicate-folder confusion.
 - [x] Quarantined wrong duplicate folder.
 - [x] Added symlink so `~/Projects/AltarskyGame` points to the real Godot project.
@@ -563,10 +563,8 @@ Use this section when docs should be updated later instead of interrupting activ
 
 - Documentation TODO:
   - Reason:
-    - Recreate the player soul core system doc in the correct repo.
+    - Integrate the newly created player soul core system doc into related docs.
   - Affected docs:
-    - `docs/systems/player_soul_core.md`
-    - `docs/00_ReadMeFirst/01_documentation_guide.md`
     - `docs/00_ReadMeFirst/02_project_document_map.md`
     - `docs/sprints/current_sprint.md`
     - `docs/release_tracker/pre_alpha_0_1.md`
@@ -653,7 +651,7 @@ Long or historically important work should become a devlog under `docs/01_devlog
     - Use hats/work modes to control abstraction.
     - Use current sprint as temporary parking lot for ideas, OS improvements, and documentation TODOs.
   - Blockers:
-    - Player soul core doc still needs recreation.
+    - Player soul core doc has been created; related docs still need integration updates.
     - Current sprint still needs validation after rebuild.
   - Ideas parked:
     - Future scene maps.
@@ -661,12 +659,12 @@ Long or historically important work should become a devlog under `docs/01_devlog
     - Future local helper tools.
     - Future dedicated idea inbox.
   - Documentation TODOs:
-    - Recreate player soul core doc.
+    - Integrate player soul core doc into related docs.
     - Update related docs.
     - Review placeholder docs.
   - Next step:
     - Save and commit rebuilt `docs/sprints/current_sprint.md`.
-    - Then recreate `docs/systems/player_soul_core.md`.
+    - Then update related docs affected by `docs/systems/player_soul_core.md`.
 
 ---
 
