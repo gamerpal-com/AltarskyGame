@@ -55,6 +55,22 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_tmkbg")
+show_errors = null
+show_warnings = null
+show_system = null
+show_info = null
+show_verbose = null
+show_all_logs = null
+live_log_display = null
+refresh_snapshot_when_opened = null
+auto_scroll_log = true
+debug_log_refresh_interval = null
+visible_log_line_limit = 15
+visible_log_overflow_limit = null
+visible_log_trim_interval = null
+progressive_log_load = null
+log_lines_per_load_step = null
+progressive_load_interval = null
 
 [node name="LogToggle" type="TextureButton" parent="DebugPanel" unique_id=409527762]
 layout_mode = 0
@@ -147,3 +163,87 @@ offset_right = 1020.0
 offset_bottom = 191.0
 grow_horizontal = 0
 text = "ClickToZoom"
+
+[node name="LogFilterControls" type="VBoxContainer" parent="DebugPanel" unique_id=854582123]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 707.0
+offset_right = 183.0
+offset_bottom = 1689.0
+theme_override_constants/separation = 58
+
+[node name="RefreshLogsButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=1366124382]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "Refresh"
+
+[node name="ShowAllButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=1621338839]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(2.3102762e-06, 0.8141028, 0.45316207, 1)
+theme_override_colors/icon_pressed_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "All"
+
+[node name="LiveButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=1401306795]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(2.3102762e-06, 0.8141028, 0.45316207, 1)
+theme_override_colors/icon_pressed_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "Live"
+
+[node name="ErrorsButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=342920110]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(2.3102762e-06, 0.8141028, 0.45316207, 1)
+theme_override_colors/icon_pressed_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "Errors"
+
+[node name="WarningsButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=739600495]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(2.3102762e-06, 0.8141028, 0.45316207, 1)
+theme_override_colors/icon_pressed_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "Warn"
+
+[node name="SystemButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=1642407717]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(2.3102762e-06, 0.8141028, 0.45316207, 1)
+theme_override_colors/icon_pressed_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "System"
+
+[node name="InfoButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=621935992]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(2.3102762e-06, 0.8141028, 0.45316207, 1)
+theme_override_colors/icon_pressed_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "info"
+
+[node name="VerboseButton" type="Button" parent="DebugPanel/LogFilterControls" unique_id=1986228621]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(2.3102762e-06, 0.8141028, 0.45316207, 1)
+theme_override_colors/icon_pressed_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "Verbose"
