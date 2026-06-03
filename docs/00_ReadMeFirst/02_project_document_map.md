@@ -1251,7 +1251,6 @@ Current known gaps:
 - `docs/00_ReadMeFirst/03_development_workflow.md` does not exist yet.
 - `docs/00_ReadMeFirst/templates/current_sprint_template.md` does not exist yet.
 - Remaining placeholder `docs/game_flow/` docs: `boot_flow.md`, `inventory.md`, `main_menu.md`, and `paused.md`.
-- `docs/planning/sky_time_map.md` is a placeholder.
 - `docs/planning/roadmap.md` may contain stale branch/focus references.
 - Future `docs/scene_maps/` may be needed for Godot scene trees, nodes, inspector settings, and signal wiring.
 - Future new maintainer onboarding may be needed once teammates begin using the system.

@@ -194,7 +194,7 @@ Next action:
 - Verify diff.
 - Commit the sprint rebuild.
 - Continue Developer Operating System implementation/testing.
-- Then review remaining planning docs affected by `docs/systems/player_soul_core.md`.
+- Then run the initial Developer Operating System validation pass.
 
 ---
 
@@ -208,7 +208,7 @@ Tasks currently being worked on or approved for this sprint.
 - [ ] Test the `00_start_here.md` routing flow with simple prompts.
 - [ ] Test hat switching using `docs/00_ReadMeFirst/03_development_workflow.md`.
 - [ ] Decide whether Developer OS improvement notes stay in `current_sprint.md` or later move to `docs/planning/developer_os_improvement_backlog.md`.
-- [ ] Finish remaining player soul core planning-doc review: `docs/planning/roadmap.md` and `docs/planning/sky_time_map.md`.
+- [x] Finished remaining player soul core planning-doc review: `docs/planning/roadmap.md` and `docs/planning/sky_time_map.md`.
 - [ ] Decide where idea capture belongs long-term: sprint doc, planning doc, or separate idea inbox.
 - [ ] Run initial AI validation tests before returning to game development.
 
@@ -277,6 +277,7 @@ Completed tasks should later feed devlogs, milestones, release tracker, systems 
 
 ### Developer Operating System / Documentation Work Completed
 
+- [x] Updated `docs/planning/roadmap.md` and `docs/planning/sky_time_map.md` after player soul core integration.
 - [x] Updated `docs/release_tracker/pre_alpha_0_1.md` with player soul core release-scope tracking.
 - [x] Updated `docs/00_ReadMeFirst/02_project_document_map.md` so `docs/systems/player_soul_core.md` is listed as a current system doc.
 - [x] Documented soul-core gameplay/death/sanctuary flow in `docs/game_flow/gameplay.md`, `docs/game_flow/home.md`, and `docs/game_flow/game_state_map.md`.
@@ -566,20 +567,17 @@ Before adding a new item, check this section to avoid duplicates.
 
 Use this section when docs should be updated later instead of interrupting active work.
 
-- Documentation TODO:
+- Documentation completed:
   - Reason:
-    - Finish remaining planning-doc review after player soul core documentation integration.
-  - Affected docs:
+    - Finished remaining planning-doc review after player soul core documentation integration.
+  - Updated docs:
     - `docs/planning/roadmap.md`
     - `docs/planning/sky_time_map.md`
   - Source hat:
     - Development Systems Architect
     - Documentation Architect
-  - Review as:
-    - Project Manager
-    - Documentation Architect
   - Status:
-    - Open.
+    - Completed.
 
 - Documentation TODO:
   - Reason:
@@ -649,11 +647,11 @@ Long or historically important work should become a devlog under `docs/01_devlog
     - Future dedicated idea inbox.
   - Documentation TODOs:
     - Review remaining planning docs affected by player soul core direction.
-    - Review `docs/planning/roadmap.md` and `docs/planning/sky_time_map.md`.
+    - Initial player soul core planning-doc review completed.
     - Review placeholder docs.
   - Next step:
     - Save and commit rebuilt `docs/sprints/current_sprint.md`.
-    - Then review remaining planning docs affected by `docs/systems/player_soul_core.md`.
+    - Then run the initial Developer Operating System validation pass.
 
 ---
 
