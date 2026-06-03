@@ -219,8 +219,49 @@ This sprint is considered complete when:
 At that point the Sky Layer Manager MVP will be considered feature complete and ready for transition into future Skyflow Director development.
 
 ---
+## Documentation / Workflow System Work
+
+This sprint temporarily includes documentation infrastructure cleanup and developer workflow design before returning to Sky Layer Manager implementation.
+
+### Completed
+
+- [x] Confirmed real Godot project path and fixed duplicate-folder confusion.
+- [x] Reorganized docs into final folder structure:
+  - `docs/00_ReadMeFirst/`
+  - `docs/01_devlogs/`
+  - `docs/game_flow/`
+  - `docs/planning/`
+  - `docs/release_tracker/`
+  - `docs/sprints/`
+  - `docs/systems/`
+- [x] Fixed `docs/00_ReadMeFirst/00_documentation_guide.md` Markdown structure.
+- [x] Committed documentation structure cleanup separately from code changes.
+- [x] Split remaining code/scene work into clean commits.
+
+### Active Documentation Tasks
+
+- [ ] Design the AltarSky developer operating system.
+- [ ] Create the final `00_ReadMeFirst/` pyramid docs:
+  - `docs/00_ReadMeFirst/00_start_here.md`
+  - `docs/00_ReadMeFirst/01_documentation_guide.md`
+  - `docs/00_ReadMeFirst/02_project_document_map.md`
+  - `docs/00_ReadMeFirst/03_development_workflow.md`
+  - `docs/00_ReadMeFirst/templates/current_sprint_template.md`
+- [ ] Reorganize `docs/sprints/current_sprint.md` so it tracks active tasks, completed tasks, decisions, blockers, deferred ideas, documentation TODOs, and sprint closeout.
+- [ ] Recreate `docs/systems/player_soul_core.md` in the correct repo.
+- [ ] Update related docs affected by the soul core system.
+- [ ] Decide where idea capture belongs: sprint doc, planning doc, or separate idea inbox.
+
+### Deferred Notes
+
+- Developer workflow should help the assistant keep the user focused, catch out-of-scope ideas, suggest deferral instead of derailment, and remind about documentation only at natural stopping points.
+- Sprint closeout must preserve completed work instead of deleting it.
+- Completed sprint work should feed devlogs, project milestones, release tracker, systems docs, game-flow docs, and planning docs.
+
+---
 
 # Next Planned Sprint
+
 
 ## Skyflow Director Foundation
 
