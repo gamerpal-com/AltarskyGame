@@ -300,7 +300,7 @@ Completed tasks should later feed devlogs, milestones, release tracker, systems 
 - [x] Split remaining code/scene work into clean commits.
 - [x] Created and committed `docs/00_ReadMeFirst/99_developer_operating_system_design_notes.md`.
 - [x] Created and committed `docs/00_ReadMeFirst/00_start_here.md`.
-- [x] Renamed `docs/00_ReadMeFirst/00_documentation_guide.md` to `docs/00_ReadMeFirst/01_documentation_guide.md`.
+- [x] Renamed the documentation guide to `docs/00_ReadMeFirst/01_documentation_guide.md`.
 - [x] Created and committed `docs/00_ReadMeFirst/02_project_document_map.md`.
 - [x] Created and committed `docs/00_ReadMeFirst/03_development_workflow.md`.
 - [x] Created and committed `docs/00_ReadMeFirst/templates/current_sprint_template.md`.

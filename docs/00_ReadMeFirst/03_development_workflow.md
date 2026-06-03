@@ -1332,4 +1332,3 @@ Preserve completed work.
 Do not let the system drift.
 
 The repo is the source of truth.
-```
