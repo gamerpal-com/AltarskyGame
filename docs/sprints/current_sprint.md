@@ -852,3 +852,24 @@ At sprint closeout:
 5. Commit the sprint reset.
 
 Never reset `docs/sprints/current_sprint.md` from memory once the template exists.
+
+## Developer OS Improvement Notes — Hat Switch Validation Logging
+
+- Improvement idea:
+  - Source hat:
+    - Development Systems Architect
+  - Friction / reason:
+    - During AI validation, switching into Developer Hat worked correctly, but the system did not automatically preserve the validation result or handoff status in the repo.
+  - Suggested fix:
+    - Add a lightweight hat-switch / validation logging rule so successful or failed hat transitions can be recorded when useful.
+    - The log should capture previous hat, new hat, handoff status, whether docs/tasks need updates, validation pass/fail, and next intended action.
+  - Review as:
+    - Development Systems Architect
+    - Scrum Master / Sprint Operator
+  - Possible affected docs:
+    - `docs/00_ReadMeFirst/03_development_workflow.md`
+    - `docs/sprints/current_sprint.md`
+    - Future `tools/docs/add_hat_switch_log.sh`
+  - Status:
+    - Parked for review.
+
