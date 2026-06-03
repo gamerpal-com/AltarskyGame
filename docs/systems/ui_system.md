@@ -1,5 +1,21 @@
 # UI System
 
+> Documentation maintenance note:
+> If this document is updated, also review and update the related documentation listed below when the change affects that area:
+>
+> - `docs/00_ReadMeFirst/02_project_document_map.md` — update if UI-system responsibilities, source-of-truth routing, or document relationships change.
+> - `docs/00_ReadMeFirst/03_development_workflow.md` — review if UI work changes Developer Hat, QA Hat, Art Director Hat, Documentation Architect Hat, or sprint workflow expectations.
+> - `docs/sprints/current_sprint.md` — update when UI tasks, completed work, blockers, deferred ideas, documentation TODOs, or validation notes change.
+> - `docs/release_tracker/pre_alpha_0_1.md` — update if UI behavior, debug UI, HUD, results popup, or menu flow affects Pre-Alpha 0.1 scope.
+> - `docs/game_flow/gameplay.md` — update when gameplay UI, HUD, score display, death UI, or pause/gameplay overlays change.
+> - `docs/game_flow/home.md` — update when sanctuary UI, post-death result popup, preparation UI, or recovery UI changes.
+> - `docs/game_flow/game_state_map.md` — update when UI affects state transitions, death results, pause, menu, or sanctuary flow.
+> - `docs/systems/player_soul_core.md` — update when UI layers, death result popup, gameplay readability, or soul-core visibility rules change.
+> - `docs/systems/player_controller.md` — update when UI depends on player state, zone state, movement state, or player death/recovery state.
+> - `docs/systems/projectile_system.md` — update when UI affects projectile/debug visualization, score display, or combat readability.
+>
+> Do not update this document in isolation when UI behavior changes affect gameplay state, soul core visibility, death/sanctuary flow, projectile readability, or release scope.
+
 ## Purpose
 
 The UI System manages the current prototype's player-facing and developer-facing interface elements.
@@ -291,6 +307,75 @@ Future UI systems may include:
 - Pet status UI
 
 ---
+---
+
+## Soul Core / Gameplay UI Relationship
+
+UI sits above the soul core in the visual hierarchy.
+
+Current intended hierarchy:
+
+```text
+Layer 2: Scene camera UI
+Layer 1: UI
+Layer 0: Player soul core / true hitbox marker
+Layer -1: Enemy projectiles
+Layer -2 and below: player body, bullets, enemies, environment, sky
+```
+
+During active gameplay, UI should not unnecessarily obscure the soul core or enemy projectiles.
+
+UI may cover the soul core during:
+
+- Menus
+- Pause
+- Debug overlays
+- Post-death result popups
+- Sanctuary/home flow
+- Scene transitions
+
+The soul core remains the top gameplay visual anchor, but UI can sit above it when the game state calls for an interface overlay.
+
+See:
+
+- `docs/systems/player_soul_core.md`
+- `docs/game_flow/gameplay.md`
+- `docs/game_flow/game_state_map.md`
+
+---
+
+## Death Results / Sanctuary Popup Direction
+
+The post-death results/loss popup should appear after the soul-core death sequence and sanctuary return.
+
+Intended flow:
+
+```text
+Fatal hit to soul core
+→ Death sequence
+→ Fade out
+→ Sanctuary / Home
+→ Player wakes / reforms / stabilizes
+→ Results / Loss Popup
+```
+
+The popup should eventually display:
+
+- Score
+- Losses
+- Rank damage
+- Items lost
+- Temporary upgrades lost
+- Rewards preserved
+- Next preparation options
+
+This popup should not appear before the death cinematic completes.
+
+See:
+
+- `docs/game_flow/home.md`
+- `docs/game_flow/game_state_map.md`
+
 
 ## Future UI Separation
 
