@@ -1,5 +1,19 @@
 # Debug Console System
 
+> Documentation maintenance note:
+> If this system doc is updated, also review and update the related documentation listed below when the change affects that area:
+>
+> - `docs/01_devlogs/pre_alpha_0_1/debugger_overhaul_2026-06-01.md` — update only if historical details about the overhaul need correction or clarification.
+> - `docs/01_devlogs/pre_alpha_0_1/pre_alpha_0_1_history.md` — update if debug-console changes become part of Pre-Alpha 0.1 history.
+> - `docs/01_devlogs/project_milestones.md` — update if debug-console work becomes a milestone or changes milestone wording.
+> - `docs/systems/ui_system.md` — update when debug panel UI, filter buttons, visibility, or UI performance behavior changes.
+> - `docs/systems/main_scene_controller.md` — update when main-scene debug toggles, zone overlay control, or debug signal wiring changes.
+> - `docs/sprints/current_sprint.md` — update when debug-console tasks, blockers, completed work, or validation notes change.
+> - `docs/release_tracker/pre_alpha_0_1.md` — update if debug infrastructure readiness affects Pre-Alpha 0.1 scope.
+>
+> This document describes current debug-console behavior. Historical investigation details belong in the debugger overhaul devlog.
+
+
 ## Purpose
 
 The Debug Console System provides runtime visibility into the state of the AltarSky prototype.

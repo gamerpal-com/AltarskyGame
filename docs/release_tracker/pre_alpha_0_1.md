@@ -1,5 +1,18 @@
 # Pre-Alpha 0.1
 
+> Documentation maintenance note:
+> If this release tracker is updated, also review and update the related documentation listed below when the change affects that area:
+>
+> - `docs/planning/roadmap.md` — update if Pre-Alpha 0.1 scope, direction, or priority changes.
+> - `docs/release_tracker/release_roadmap.md` — update if milestone order, release goals, or release status changes.
+> - `docs/sprints/current_sprint.md` — update if release requirements create, complete, defer, or block active sprint work.
+> - `docs/01_devlogs/pre_alpha_0_1/pre_alpha_0_1_history.md` — update during sprint/release closeout when completed work becomes historical record.
+> - Related `docs/systems/` docs — update if release criteria depend on current system behavior.
+> - Related `docs/game_flow/` docs — update if release criteria depend on player flow, menus, gameplay, death, sanctuary, or state transitions.
+>
+> This document tracks release readiness. It should stay aligned with the active sprint and roadmap.
+
+
 ## Release Goal
 
 First Playable Sky-World Prototype

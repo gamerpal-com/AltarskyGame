@@ -1,5 +1,17 @@
 # Debugger Overhaul — 2026-06-01
 
+> Documentation maintenance note:
+> If this devlog is updated, also review and update the related documentation listed below when the change affects that area:
+>
+> - `docs/01_devlogs/pre_alpha_0_1/pre_alpha_0_1_history.md` — update if the debug-console overhaul timeline, outcome, or historical summary changes.
+> - `docs/01_devlogs/project_milestones.md` — update if this overhaul becomes a milestone, changes milestone wording, or affects project timeline.
+> - `docs/systems/debug_console.md` — update if the current debug console behavior, architecture, performance rules, logger/display separation, filters, or mobile controls change.
+> - `docs/systems/ui_system.md` — update if debug UI controls, panel behavior, visibility rules, or UI performance behavior change.
+> - `docs/sprints/current_sprint.md` — update when debug-console follow-up tasks, blockers, completed work, or validation notes change.
+> - `docs/release_tracker/pre_alpha_0_1.md` — update if debug infrastructure readiness or performance affects Pre-Alpha 0.1 release scope.
+>
+> This is a historical devlog. Current behavior belongs in system docs; this file should preserve what happened and why.
+
 ## Summary
 
 Completed a major overhaul of the in-game debug console during Pre-Alpha 0.1 development.

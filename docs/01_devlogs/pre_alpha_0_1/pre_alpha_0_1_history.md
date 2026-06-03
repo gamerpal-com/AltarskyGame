@@ -1,6 +1,18 @@
 
 # Pre-Alpha 0.1 Development History
 
+> Documentation maintenance note:
+> If this history document is updated, also review and update the related documentation listed below when the change affects that area:
+>
+> - `docs/01_devlogs/project_milestones.md` — update if the change represents a project-level milestone or changes timeline summary.
+> - `docs/release_tracker/pre_alpha_0_1.md` — update if historical completion status affects current release criteria or release readiness.
+> - `docs/sprints/current_sprint.md` — update if current sprint completed work, deferred work, or closeout notes should feed this history.
+> - Related `docs/systems/` docs — update if the current behavior of a system changed and this history references it.
+> - Related `docs/game_flow/` docs — update if player flow or state-flow history changes.
+>
+> This document records what happened during Pre-Alpha 0.1. Do not use it as the only source for current system behavior.
+
+
 This document records the major development phases completed during construction of the first AltarSky playable prototype.
 
 The purpose of this document is historical reference.

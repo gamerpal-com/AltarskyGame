@@ -1,5 +1,17 @@
 # Shelved Future Documentation
 
+> Documentation maintenance note:
+> If this shelved-future list is updated, also review and update the related documentation listed below when the change affects that area:
+>
+> - `docs/planning/roadmap.md` — update if a shelved system becomes active, changes priority, or affects future direction.
+> - `docs/00_ReadMeFirst/02_project_document_map.md` — update if a new document type, planned doc, or source-of-truth path is added.
+> - `docs/sprints/current_sprint.md` — update if a shelved idea becomes current sprint work or is deferred from current work.
+> - `docs/release_tracker/pre_alpha_0_1.md` — update if a shelved system becomes required for the current release.
+> - Related `docs/systems/` or `docs/game_flow/` docs — update if a shelved system graduates into active documentation.
+>
+> This document is for future systems that should not derail current work.
+
+
 ## Purpose
 
 This document lists future systems that may need documentation later.
