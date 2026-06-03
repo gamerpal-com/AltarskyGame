@@ -150,14 +150,27 @@ When a hat switch is detected:
 1. Identify the target hat.
 2. Identify the previous hat if known.
 3. Check whether the previous hat requires handoff, parking, or closeout.
-4. Run the target hat startup checklist.
-5. Ask only the required immediate questions.
-6. Open or reference the required docs.
-7. Confirm the work mode before proceeding.
+4. Confirm whether findings, notes, work, dirty-tree changes, or unfinished tasks are stored, parked, committed, stashed, deferred, or intentionally carried forward.
+5. Run the target hat startup checklist.
+6. Ask only the required immediate questions.
+7. Open or reference the required docs.
+8. Confirm the work mode before proceeding.
 
 Hat switching should not happen blindly.
 
 Some transitions require handoff.
+
+If the user says they are taking off a hat but does not name the next hat:
+
+1. Identify the hat being removed.
+2. Confirm what must be stored, parked, committed, stashed, deferred, or carried forward.
+3. Ask which hat the user is putting on next.
+4. Recommend the likely next hat if obvious.
+5. Do not fully switch hats until the user confirms the next hat or a default has been explicitly defined.
+
+AI must use official hat names from this workflow document.
+
+If a new hat seems needed, park that as a Developer OS improvement instead of inventing or using an unofficial hat name during active work.
 
 Examples:
 
@@ -219,9 +232,16 @@ Before leaving a hat, check:
 5. Were ideas generated that belong to another hat?
 6. Are documentation updates needed now?
 7. Should a deferred TODO be added instead?
-8. Is a session log needed?
+8. Are findings, validation results, or decisions safely stored?
+9. Is the working tree clean, intentionally dirty, committed, stashed, or deferred?
+10. Is a session log needed?
+11. What hat is going on next?
 
 If the previous hat was doing active implementation, preserve enough state to return later.
+
+If the previous hat was QA / Tester, confirm that validation findings are logged, parked, or intentionally deferred before switching.
+
+If the previous hat was Development Systems Architect, confirm that operating-system changes or TODOs are captured before leaving the meta-layer.
 
 ---
 
@@ -1224,6 +1244,31 @@ If there is path confusion:
 - Run `git status`.
 - Confirm Godot project path.
 
+Before implementation work begins, the working tree should be clean unless the dirty state is intentional.
+
+If `git status --short` shows changes before implementation:
+
+1. Inspect the dirty files.
+2. Classify the changes as code, docs, scenes, assets, tuning, validation notes, or unknown.
+3. Recommend one of:
+   - Commit
+   - Stash
+   - Discard
+   - Explicit dirty-tree acceptance
+4. Do not proceed into implementation until the user chooses one.
+
+If the user says they want to code anyway with a dirty tree, gently push back once and explain the risk.
+
+If the user explicitly accepts the dirty-tree risk after inspection, continue, but mention the dirty state in the next handoff or session log if relevant.
+
+When asking the user to paste diff output, prefer:
+
+```bash
+git --no-pager diff -- <path>
+```
+
+over plain `git diff`, so the terminal does not get stuck in a pager.
+
 ---
 
 # AI Guidance Rules
@@ -1231,12 +1276,25 @@ If there is path confusion:
 The AI should:
 
 - Identify the user's likely hat.
+- Use official hat names from this workflow document.
 - Repeat back the interpreted task when helpful.
 - Ask only necessary immediate questions.
 - Give one instruction at a time during active implementation unless the user asks for a full plan.
 - Provide one complete uninterrupted block when the user asks for copy-paste content.
+- Format terminal commands as clean multi-line commands.
 - Prefer exact terminal commands or paste destinations over vague instructions.
+- Prefer `git --no-pager diff` over plain `git diff` when asking the user to paste diff output.
 - Park out-of-scope ideas instead of derailing.
+- Prefer existing sprint sections when parking notes:
+  - `Good Ideas / Not Current Scope`
+  - `Developer OS Improvement Notes`
+  - `Documentation TODO / Deferred Updates`
+  - `Session Logs / Work Notes`
+  - `QA / Validation Notes`
+  - `Git / Integration Notes`
+- Ask for the actual idea before generating an idea-parking command when practical.
+- Ask "what changed?" before routing a vague documentation-update request.
+- Include a paste destination or terminal append command when generating a Stand-Down Update or session log that should be saved.
 - Remind about docs at natural stopping points.
 - Check for duplicate improvement suggestions before proposing new ones.
 - Treat repo docs as source of truth.
@@ -1245,27 +1303,77 @@ The AI should:
 The AI should not:
 
 - Assume the user is coding.
+- Invent new hat names during active work.
 - Rewrite operating-system rules from a lower-level hat.
 - Push major scope changes into active sprint without Project Manager review.
 - Tell the user vaguely to "update docs" when a specific paste block or command would be better.
 - Continue after a hat switch without checking required handoff/startup steps.
+- Proceed into implementation with a dirty tree unless the user has committed, stashed, discarded, or explicitly accepted the dirty-tree risk after inspection.
 
 ---
 
-# AI Validation Tests
+# AI Behavior Validation Loop
 
-Before returning fully to game development, test the system with prompts like:
+AI behavior validation is an official workflow.
+
+Use this workflow when testing whether an AI session follows the Developer Operating System correctly.
+
+Primary hat:
+
+- QA / Tester
+
+Supporting hat:
+
+- Development Systems Architect
+
+Process:
+
+1. Start in QA / Tester Hat.
+2. Run a defined validation prompt.
+3. Compare expected behavior against actual behavior.
+4. Mark the result as:
+   - Pass
+   - Partial pass
+   - Fail
+5. Capture the exact friction or failure.
+6. Decide whether the issue is:
+   - Prompt issue
+   - Missing workflow rule
+   - Missing hat rule
+   - Missing documentation path
+   - Missing helper script
+   - AI behavior limitation
+7. Park findings during the validation batch.
+8. After the batch, switch to Development Systems Architect Hat.
+9. Convert findings into OS rule updates.
+10. Retest after the rules are updated.
+
+Validation prompts may include:
 
 - "I am switching to Developer Hat."
-- "I am switching to Visionary Hat."
+- "I am switching from Developer Hat to Visionary / Concept Designer Hat."
 - "Time to update docs."
 - "Close out this sprint."
 - "I have a good idea but I am coding."
+- "I know this is out of scope, but I want to implement it anyway."
 - "I want to evolve the operating system."
 - "Where does this note belong?"
-- "Generate an end-of-session log."
+- "Generate a Stand-Down Update for this session."
 - "What should I work on next?"
-- "I am switching from Developer Hat to Documentation Architect Hat."
+
+Validation result format:
+
+- Test name:
+- Prompt used:
+- Expected behavior:
+- Actual behavior:
+- Result:
+  - Pass
+  - Partial pass
+  - Fail
+- Correction needed:
+- Affected docs:
+- Retest needed:
 
 Success condition:
 
@@ -1275,6 +1383,10 @@ Success condition:
 - AI captures ideas without derailment.
 - AI knows when to update docs vs defer.
 - AI follows repo docs instead of relying only on memory.
+- AI checks handoff requirements when hats change.
+- AI handles dirty-tree state before implementation.
+- AI gives clean, pasteable terminal commands.
+- AI gives paste destinations or append commands when generating session logs.
 
 ---
 

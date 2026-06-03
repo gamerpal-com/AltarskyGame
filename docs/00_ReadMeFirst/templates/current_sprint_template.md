@@ -250,7 +250,7 @@ TODOs:
 
 ## Session Logs / Work Notes
 
-Use this section for short session logs or work summaries when a separate devlog is not needed yet.
+Use this section for short session logs, Stand-Down Updates, or work summaries when a separate devlog is not needed yet.
 
 Long or historically important work should become a devlog under `docs/01_devlogs/`.
 
@@ -264,7 +264,11 @@ Format:
   - Blockers:
   - Ideas parked:
   - Documentation TODOs:
+  - Validation notes:
   - Next step:
+  - Save destination:
+
+When the user asks for a Stand-Down Update or session log, the AI should include an exact paste destination or terminal append command when the update should be saved.
 
 Session logs:
 
@@ -274,7 +278,7 @@ Session logs:
 
 ## QA / Validation Notes
 
-Use this section to track testing, validation, devices, regressions, and pass/fail results.
+Use this section to track testing, validation, devices, regressions, AI behavior validation, and pass/fail results.
 
 Format:
 
@@ -283,7 +287,13 @@ Format:
   - Expected:
   - Actual:
   - Result:
+    - Pass / Partial pass / Fail
+  - Correction needed:
+  - Affected docs:
+  - Retest needed:
   - Follow-up:
+
+AI behavior validation notes should be parked here during test batches before Development Systems Architect review converts findings into workflow rules.
 
 Validation notes:
 
