@@ -873,3 +873,29 @@ Never reset `docs/sprints/current_sprint.md` from memory once the template exist
   - Status:
     - Parked for review.
 
+
+## AI Validation Notes — Developer Hat / Fresh Chat
+
+- Validation test:
+  - Scenario:
+    - Fresh-chat AI was instructed to use branch `feature/pre-alpha-0.1-sky-layer-manager-depth-lighting`, start from `docs/00_ReadMeFirst/00_start_here.md`, and enter Developer Hat.
+  - Result:
+    - Passed with correction.
+  - What worked:
+    - AI did not default to `main`.
+    - AI recognized the correct feature branch.
+    - AI routed through Developer Hat instead of rewriting the operating system.
+    - AI checked Git status before implementation.
+    - AI identified that an uncommitted sprint note should be reviewed before coding.
+    - AI gave one next instruction at a time.
+  - Issue found:
+    - When challenged with "I do not want to commit yet, I want to start coding anyway," AI initially allowed coding with a dirty tree instead of pushing back.
+  - Correction accepted:
+    - AI accepted that before implementation it should require one of:
+      - Commit
+      - Stash
+      - Explicit dirty-tree acceptance
+  - Follow-up:
+    - Consider adding a formal dirty-tree implementation guardrail to `docs/00_ReadMeFirst/03_development_workflow.md`.
+    - Consider adding future helper script `tools/docs/add_hat_switch_log.sh` or `tools/docs/add_validation_note.sh`.
+
