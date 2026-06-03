@@ -56,7 +56,7 @@ margin_top = 24.0
 margin_bottom = 96.0
 camera = NodePath("../Camera2D")
 bullet_speed = 1000.0
-fire_interval = 1.0
+fire_interval = 0.4
 bullet_lifetime = 4.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1385709200]
