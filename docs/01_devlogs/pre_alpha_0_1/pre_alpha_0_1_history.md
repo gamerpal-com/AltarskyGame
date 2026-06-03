@@ -219,4 +219,3 @@ A player should be able to:
 * Persist high score data
 
 The purpose of Pre-Alpha 0.1 is to demonstrate the core vision of AltarSky through a complete but minimal gameplay loop.
-

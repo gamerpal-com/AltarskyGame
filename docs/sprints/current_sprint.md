@@ -57,6 +57,27 @@ The end result should support the visual identity and atmosphere of AltarSky whi
 
 ---
 
+---
+
+## Supporting Work Completed During This Sprint
+
+### Debug Console Overhaul
+
+- ✓ Identified debugger-related performance issue during profiling
+- ✓ Separated logger signal handling from expensive UI rendering
+- ✓ Added log levels: ERROR, WARNING, SYSTEM, INFO, VERBOSE
+- ✓ Added filtered debug display
+- ✓ Added snapshot-based log display
+- ✓ Added optional live log display
+- ✓ Added progressive log loading
+- ✓ Added capped visible log buffer
+- ✓ Added mobile-friendly debug filter buttons
+- ✓ Updated debugger, UI, milestone, and devlog documentation
+
+This work was completed to make performance testing safer before continuing Sky Layer Manager optimization.
+
+---
+
 # Current Sprint Goals
 
 ## Movement Systems
@@ -86,7 +107,8 @@ The end result should support the visual identity and atmosphere of AltarSky whi
 ## Validation
 
 - □ Environmental MVP Review
-- □ Performance Review
+- □ Sky Layer Manager Performance Review
+- ✓ Debugger Performance Review
 - □ Identify Remaining Sky Layer Manager MVP Blockers
 
 ---
@@ -149,6 +171,15 @@ The remaining issue is that spacing calculations do not currently account for ro
 
 Rotation-aware spacing calculations will be required before rotational variance can be safely enabled on larger environmental assets.
 
+## Idle Performance Spike
+
+A periodic stutter still occurs while the game is idle.
+
+The debugger was investigated first and significantly optimized.
+
+The remaining idle spike appears to be unrelated to the debug console and 
+should be investigated next through the Sky Layer Manager, 
+environmental asset recycling, spawn validation, layer tuning, or rendering behavior.
 ---
 
 ## Spawn Zone Tracking
