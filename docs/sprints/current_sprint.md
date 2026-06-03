@@ -899,3 +899,82 @@ Never reset `docs/sprints/current_sprint.md` from memory once the template exist
     - Consider adding a formal dirty-tree implementation guardrail to `docs/00_ReadMeFirst/03_development_workflow.md`.
     - Consider adding future helper script `tools/docs/add_hat_switch_log.sh` or `tools/docs/add_validation_note.sh`.
 
+
+## AI Validation Notes — Developer Operating System Batch 1
+
+- Validation batch:
+  - Source hats:
+    - QA / Tester
+    - Development Systems Architect
+  - Purpose:
+    - Test whether a fresh AI session can follow the AltarSky Developer Operating System using the feature branch as source of truth.
+
+- Tests completed:
+  - Developer Hat switch:
+    - Result: Pass.
+    - Notes:
+      - AI identified Developer Hat.
+      - AI checked sprint/source docs.
+      - AI avoided dumping a giant checklist.
+  - Fresh-chat source-of-truth / branch test:
+    - Result: Pass.
+    - Notes:
+      - AI did not default to main.
+      - AI used `feature/pre-alpha-0.1-sky-layer-manager-depth-lighting`.
+      - Minor issue: command path/formatting needed correction.
+  - Dirty-tree guardrail test:
+    - Result: Partial fail, corrected after feedback.
+    - Notes:
+      - AI initially allowed coding with uncommitted sprint-doc changes.
+      - Corrected rule: before implementation, require commit, stash, discard, or explicit dirty-tree acceptance after inspecting changes.
+  - Blowout / out-of-scope pet idea test:
+    - Result: Pass with improvement notes.
+    - Notes:
+      - AI correctly parked the pet idea instead of derailing Sky Layer Manager work.
+      - Improvements needed: use official hat names, prefer existing sprint sections, avoid TODO placeholders when the actual idea can be requested first.
+  - Documentation update test:
+    - Result: Partial fail.
+    - Notes:
+      - AI shifted toward documentation mode.
+      - It should have asked what changed before assuming the update was about the pet idea.
+      - It should provide exact paths/commands after identifying the change.
+  - Developer Hat to Visionary / Concept Designer Hat switch:
+    - Result: Pass with command-format issue.
+    - Notes:
+      - AI recognized the official target hat.
+      - AI required worktree/handoff check before concept capture.
+      - Command formatting was smashed together.
+  - Stand-Down Update test:
+    - Result: Pass with improvement notes.
+    - Notes:
+      - AI used the correct Stand-Down Update heading.
+      - AI used first-person wording.
+      - AI ended with "Signing off."
+      - Improvement needed: include exact paste destination or terminal append command.
+
+- Findings to convert into OS rules:
+  - Add formal AI Behavior Validation Loop.
+  - Add dirty-tree implementation guardrail.
+  - Add official hat-name rule.
+  - Add hat handoff checkpoint rule.
+  - Add parking-location rule that prefers existing sprint sections.
+  - Add terminal-output rule preferring `git --no-pager diff`.
+  - Add documentation-update rule requiring "what changed?" before routing.
+  - Add idea-capture rule asking for the actual idea before generating TODO placeholders when practical.
+  - Add Stand-Down/session-log rule requiring paste destination or terminal append command.
+  - Add command-format rule requiring clean multi-line terminal commands.
+
+- My assistant failure during this session:
+  - I failed to correctly identify that we were taking off QA / Tester Hat before switching modes.
+  - I also failed to confirm whether validation findings were safely stored before proceeding.
+  - Correction:
+    - On hat switch, run a Hat Handoff Checkpoint and confirm findings are logged, parked, committed, deferred, or intentionally carried forward.
+
+- Recommended next hat:
+  - Development Systems Architect
+  - Reason:
+    - Convert validation findings into formal OS workflow rules.
+
+- Status:
+  - Stored for follow-up.
+
