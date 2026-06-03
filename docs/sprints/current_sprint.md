@@ -978,3 +978,30 @@ Never reset `docs/sprints/current_sprint.md` from memory once the template exist
 - Status:
   - Stored for follow-up.
 
+
+## AI Validation Addendum — Hat-Off Without Target Hat
+
+- Validation finding:
+  - Source hats:
+    - QA / Tester
+    - Development Systems Architect
+  - Scenario:
+    - User said they were taking off QA / Tester Hat but did not immediately specify which hat was going on next.
+  - Result:
+    - Partial fail.
+  - What happened:
+    - AI inferred the likely next hat instead of first running a complete hat handoff checkpoint.
+    - AI also needed prompting to confirm whether validation findings had been safely stored before switching modes.
+  - Correct behavior:
+    - When a user says they are taking off a hat, AI should pause and run a Hat Handoff Checkpoint.
+    - AI should identify the current hat being removed.
+    - AI should confirm whether findings, notes, work, or dirty-tree changes are stored, parked, committed, deferred, or intentionally carried forward.
+    - AI should ask which hat the user is putting on next.
+    - AI may recommend a likely next hat, but should not fully switch without confirmation unless the user has defined a default.
+  - Suggested OS rule:
+    - Add a formal Hat Handoff Checkpoint rule to `docs/00_ReadMeFirst/03_development_workflow.md`.
+    - Include a default recommendation rule:
+      - If no target hat is named, suggest the likely next hat and ask for confirmation.
+  - Status:
+    - Stored for Development Systems Architect review.
+
