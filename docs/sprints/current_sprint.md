@@ -1004,4 +1004,145 @@ Never reset `docs/sprints/current_sprint.md` from memory once the template exist
       - If no target hat is named, suggest the likely next hat and ask for confirmation.
   - Status:
     - Stored for Development Systems Architect review.
+## Developer OS Improvement Notes — Memory Offload / Forget Checkpoint
 
+- Improvement idea:
+  - Source hat:
+    - Development Systems Architect
+    - QA / Tester
+  - Friction / reason:
+    - During active testing/development, AI short-term chat memory is useful for holding temporary findings without forcing immediate repo updates after every observation.
+    - However, before ending a session, switching hats, resetting context, or relying on another AI session, important findings need to be offloaded into the repo and confirmed stored.
+  - Suggested rule:
+    - Use AI/chat memory as temporary working memory during an active session.
+    - Use `docs/sprints/current_sprint.md` as sprint/session memory.
+    - Use system/planning/workflow docs as durable source-of-truth memory only after review.
+    - Before stand-down, hat handoff, context reset, or session end, run a Memory Offload Checkpoint.
+    - The checkpoint should ask:
+      - What temporary findings are currently only in chat memory?
+      - Which findings need to be stored in the repo?
+      - Which findings can be ignored?
+      - Which findings should become formal rules later?
+      - Has the repo update been committed/pushed?
+      - Can temporary memory/scratchpad context now be forgotten?
+  - Suggested fixes:
+    - Add a Memory Offload / Forget Checkpoint rule to `docs/00_ReadMeFirst/03_development_workflow.md`.
+    - Add memory-offload reminder to Stand-Down/session-log workflow.
+    - Consider future helper script `tools/docs/add_memory_offload_note.sh`.
+  - Review as:
+    - Development Systems Architect
+    - Documentation Architect
+  - Possible affected docs:
+    - `docs/00_ReadMeFirst/03_development_workflow.md`
+    - `docs/00_ReadMeFirst/templates/current_sprint_template.md`
+    - `docs/sprints/current_sprint.md`
+    - Future `tools/docs/add_memory_offload_note.sh`
+  - Status:
+    - Parked for review.
+
+## Session Logs / Work Notes — Stand-Down Update
+
+- Date:
+  - 2026-06-03
+- Active hats:
+  - QA / Tester
+  - Development Systems Architect
+  - Documentation Architect
+- Goal:
+  - Validate the AltarSky Developer Operating System behavior and convert the first validation findings into workflow rules.
+- Completed:
+  - Ran fresh-chat AI validation against the feature branch instead of `main`.
+  - Confirmed Developer Hat routing mostly works.
+  - Confirmed out-of-scope idea parking mostly works.
+  - Confirmed hat-switch handoff mostly works.
+  - Confirmed Stand-Down Update style mostly works.
+  - Found and stored validation findings in `docs/sprints/current_sprint.md`.
+  - Added formal AI behavior validation, dirty-tree, hat handoff, official hat-name, `git --no-pager diff`, documentation-update, and Stand-Down/session-log rules to `docs/00_ReadMeFirst/03_development_workflow.md`.
+  - Updated `docs/00_ReadMeFirst/templates/current_sprint_template.md` with stronger QA/validation and session-log fields.
+  - Identified a new Memory Offload / Forget Checkpoint idea for future workflow improvement.
+- Decisions:
+  - AI short-term memory can be used during active work/testing.
+  - Durable project truth should still be stored in Git-backed repo docs.
+  - Findings should be pooled during active testing and offloaded at handoff/stand-down instead of triggering constant immediate doc updates.
+- Blockers:
+  - None.
+- Follow-up:
+  - Review and formalize Memory Offload / Forget Checkpoint later.
+  - Decide whether documentation batching/cadence also needs its own explicit rule.
+  - Continue validation/retest after rest.
+- Next step:
+  - Sleep/rest.
+  - Next session should start by checking git status and reading `docs/sprints/current_sprint.md`.
+- Signing off.
+
+
+## Developer OS Improvement Notes — Memory Offload / Forget Checkpoint
+
+- Improvement idea:
+  - Source hat:
+    - Development Systems Architect
+    - QA / Tester
+  - Friction / reason:
+    - During active testing/development, AI short-term chat memory is useful for holding temporary findings without forcing immediate repo updates after every observation.
+    - However, before ending a session, switching hats, resetting context, or relying on another AI session, important findings need to be offloaded into the repo and confirmed stored.
+  - Suggested rule:
+    - Use AI/chat memory as temporary working memory during an active session.
+    - Use `docs/sprints/current_sprint.md` as sprint/session memory.
+    - Use system/planning/workflow docs as durable source-of-truth memory only after review.
+    - Before stand-down, hat handoff, context reset, or session end, run a Memory Offload Checkpoint.
+    - The checkpoint should ask:
+      - What temporary findings are currently only in chat memory?
+      - Which findings need to be stored in the repo?
+      - Which findings can be ignored?
+      - Which findings should become formal rules later?
+      - Has the repo update been committed/pushed?
+      - Can temporary memory/scratchpad context now be forgotten?
+  - Suggested fixes:
+    - Add a Memory Offload / Forget Checkpoint rule to `docs/00_ReadMeFirst/03_development_workflow.md`.
+    - Add memory-offload reminder to Stand-Down/session-log workflow.
+    - Consider future helper script `tools/docs/add_memory_offload_note.sh`.
+  - Review as:
+    - Development Systems Architect
+    - Documentation Architect
+  - Possible affected docs:
+    - `docs/00_ReadMeFirst/03_development_workflow.md`
+    - `docs/00_ReadMeFirst/templates/current_sprint_template.md`
+    - `docs/sprints/current_sprint.md`
+    - Future `tools/docs/add_memory_offload_note.sh`
+  - Status:
+    - Parked for review.
+
+## Session Logs / Work Notes — Stand-Down Update
+
+- Date:
+  - 2026-06-03
+- Active hats:
+  - QA / Tester
+  - Development Systems Architect
+  - Documentation Architect
+- Goal:
+  - Validate the AltarSky Developer Operating System behavior and convert the first validation findings into workflow rules.
+- Completed:
+  - Ran fresh-chat AI validation against the feature branch instead of `main`.
+  - Confirmed Developer Hat routing mostly works.
+  - Confirmed out-of-scope idea parking mostly works.
+  - Confirmed hat-switch handoff mostly works.
+  - Confirmed Stand-Down Update style mostly works.
+  - Found and stored validation findings in `docs/sprints/current_sprint.md`.
+  - Added formal AI behavior validation, dirty-tree, hat handoff, official hat-name, `git --no-pager diff`, documentation-update, and Stand-Down/session-log rules to `docs/00_ReadMeFirst/03_development_workflow.md`.
+  - Updated `docs/00_ReadMeFirst/templates/current_sprint_template.md` with stronger QA/validation and session-log fields.
+  - Identified a new Memory Offload / Forget Checkpoint idea for future workflow improvement.
+- Decisions:
+  - AI short-term memory can be used during active work/testing.
+  - Durable project truth should still be stored in Git-backed repo docs.
+  - Findings should be pooled during active testing and offloaded at handoff/stand-down instead of triggering constant immediate doc updates.
+- Blockers:
+  - None.
+- Follow-up:
+  - Review and formalize Memory Offload / Forget Checkpoint later.
+  - Decide whether documentation batching/cadence also needs its own explicit rule.
+  - Continue validation/retest after rest.
+- Next step:
+  - Sleep/rest.
+  - Next session should start by checking git status and reading `docs/sprints/current_sprint.md`.
+- Signing off.
