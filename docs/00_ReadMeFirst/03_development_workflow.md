@@ -1444,3 +1444,62 @@ Preserve completed work.
 Do not let the system drift.
 
 The repo is the source of truth.
+---
+
+# Minimal Developer Documentation Loop
+
+This is the default lightweight workflow during active game development.
+
+Purpose:
+
+- Let the user keep coding.
+- Let the AI track important changes in short-term session memory.
+- Avoid constant documentation interruptions.
+- Offload important notes at natural checkpoints.
+- Leave cleanup and deeper documentation organization for later Documentation Architect / Development Systems Architect passes.
+
+During active Developer work:
+
+1. The user builds the game.
+2. The AI gives one implementation step at a time.
+3. The AI tracks important decisions, changed systems, bugs, blockers, and documentation needs in short-term session memory.
+4. The AI does not force immediate doc updates after every observation.
+5. The AI only interrupts for:
+   - dirty-tree safety issues
+   - corrupted files
+   - wrong branch/source-of-truth
+   - blocked implementation
+   - destructive commands
+   - unclear user intent that could cause damage
+
+At task completion, stand-down, hat handoff, or session end:
+
+1. AI summarizes what changed.
+2. AI identifies affected docs.
+3. AI gives one clean terminal append/update command.
+4. User pastes the command.
+5. Formatting cleanup can wait for a later documentation cleanup pass.
+
+Default fast backup target:
+
+- `docs/sprints/current_sprint.md`
+
+Preferred helper:
+
+```bash
+tools/docs/append_to_sprint.sh "Heading" <<'EOF'
+Body text
+EOF
+```
+
+Fast Backup Mode:
+
+- Use one append command.
+- Do not run repeated tail/grep/diff loops unless committing, fixing corruption, or resolving a safety issue.
+- If formatting is imperfect but the idea is safely backed up, clean it later under Documentation Architect Hat.
+
+Periodic cleanup:
+
+- User may say "documentation cleanup pass."
+- AI then reviews pooled notes, cleans formatting, moves durable rules into source docs, and prepares commits.
+

@@ -425,3 +425,21 @@ At sprint closeout:
 5. Commit the sprint reset.
 
 Never reset `docs/sprints/current_sprint.md` from memory once this template exists.
+---
+
+# Minimal Developer Documentation Loop Note
+
+During active development, use this sprint doc as the fast backup target.
+
+The AI may temporarily track findings in session memory, then append one clean checkpoint block here using:
+
+```bash
+tools/docs/append_to_sprint.sh "Heading" <<'EOF'
+Body text
+EOF
+```
+
+Do not over-polish this file during active coding.
+
+Cleanup, reorganization, and durable rule updates should happen during a later Documentation Architect / Development Systems Architect pass.
+

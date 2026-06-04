@@ -1146,3 +1146,26 @@ Never reset `docs/sprints/current_sprint.md` from memory once the template exist
   - Sleep/rest.
   - Next session should start by checking git status and reading `docs/sprints/current_sprint.md`.
 - Signing off.
+
+## Developer OS Improvement Notes — Minimal Developer Documentation Loop
+
+- Update:
+  - Source hat:
+    - Development Systems Architect
+  - Reason:
+    - Scope is being cut back so game development can resume.
+    - Full Developer Operating System vision remains, but day-to-day workflow should become simpler.
+  - Minimal working mode:
+    - Developer Mode:
+      - User codes.
+      - AI tracks important changes in short-term session memory.
+      - AI avoids constant documentation interruptions.
+    - Documentation Backup Mode:
+      - At task/session checkpoints, AI gives one clean append/update command.
+      - User pastes once and moves on.
+    - Cleanup Mode:
+      - Later, Documentation Architect / Development Systems Architect cleans, organizes, and commits documentation batches.
+  - Helper script added:
+    - `tools/docs/append_to_sprint.sh`
+  - Status:
+    - Parked/implemented as lightweight workflow support so development can resume.
