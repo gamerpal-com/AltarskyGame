@@ -1562,4 +1562,3 @@ The AI should follow the repo.
 
 - Should the Developer Operating System include a future `docs/00_ReadMeFirst/04_new_maintainer_onboarding.md` document or template for onboarding teammates, future maintainers, and new AI sessions into the hat/workflow system?
 - Should the Developer Operating System include a future `docs/scene_maps/` folder for documenting Godot scene trees, node structure, inspector settings, exported variables, signal connections, and scene-specific tuning values?
-

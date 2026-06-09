@@ -259,6 +259,7 @@ Completed tasks should later feed devlogs, milestones, release tracker, systems 
 - [x] Improved recycle behavior for multiple movement directions.
 - [x] Improved asset spacing reliability.
 - [x] Improved environmental density consistency.
+
 - [x] Improved sky layer movement and drift controls.
 
 ### Supporting Work Completed During This Sprint
@@ -486,40 +487,40 @@ These should be reviewed during sprint closeout.
 - Idea:
   - Add a future dedicated `docs/planning/idea_inbox.md`.
   - Source hat:
-    - Development Systems Architect
+	- Development Systems Architect
   - Why it is not current scope:
-    - Current sprint can use this section for idea parking until repeated need proves a separate doc is needed.
+	- Current sprint can use this section for idea parking until repeated need proves a separate doc is needed.
   - Review as:
-    - Project Manager
-    - Development Systems Architect
+	- Project Manager
+	- Development Systems Architect
   - Possible destination:
-    - `docs/planning/idea_inbox.md`
+	- `docs/planning/idea_inbox.md`
 
 - Idea:
   - Add future `docs/scene_maps/` folder for Godot scene trees, nodes, inspector settings, exported variables, signal connections, and scene-specific tuning values.
   - Source hat:
-    - Documentation Architect
-    - Development Systems Architect
+	- Documentation Architect
+	- Development Systems Architect
   - Why it is not current scope:
-    - Core Developer Operating System docs should stabilize first unless scene/node confusion becomes an immediate blocker.
+	- Core Developer Operating System docs should stabilize first unless scene/node confusion becomes an immediate blocker.
   - Review as:
-    - Documentation Architect
+	- Documentation Architect
   - Possible destination:
-    - `docs/scene_maps/`
-    - `docs/00_ReadMeFirst/templates/scene_map_template.md`
+	- `docs/scene_maps/`
+	- `docs/00_ReadMeFirst/templates/scene_map_template.md`
 
 - Idea:
   - Add future new maintainer onboarding doc.
   - Source hat:
-    - Development Systems Architect
+	- Development Systems Architect
   - Why it is not current scope:
-    - Current system is still being built and tested for the user/AI first.
+	- Current system is still being built and tested for the user/AI first.
   - Review as:
-    - Development Systems Architect
-    - Documentation Architect
+	- Development Systems Architect
+	- Documentation Architect
   - Possible destination:
-    - `docs/00_ReadMeFirst/04_new_maintainer_onboarding.md`
-    - `docs/00_ReadMeFirst/templates/new_maintainer_onboarding_template.md`
+	- `docs/00_ReadMeFirst/04_new_maintainer_onboarding.md`
+	- `docs/00_ReadMeFirst/templates/new_maintainer_onboarding_template.md`
 
 ---
 
@@ -534,32 +535,32 @@ Before adding a new item, check this section to avoid duplicates.
 - Improvement idea:
   - Add local workflow helper tools after the core docs are stable.
   - Source hat:
-    - Development Systems Architect
+	- Development Systems Architect
   - Friction / reason:
-    - Vague instructions like "update the devlog" are inefficient and likely to cause drift.
+	- Vague instructions like "update the devlog" are inefficient and likely to cause drift.
   - Suggested fix:
-    - Build `tools/docs/` helper scripts for repeated actions such as parking ideas, adding blockers, adding documentation TODOs, adding session logs, and adding OS improvement notes.
+	- Build `tools/docs/` helper scripts for repeated actions such as parking ideas, adding blockers, adding documentation TODOs, adding session logs, and adding OS improvement notes.
   - Review as:
-    - Development Systems Architect
-    - Git / Integration Operator
+	- Development Systems Architect
+	- Git / Integration Operator
   - Possible affected docs:
-    - `docs/00_ReadMeFirst/03_development_workflow.md`
-    - `docs/00_ReadMeFirst/templates/current_sprint_template.md`
-    - Future `tools/docs/`
+	- `docs/00_ReadMeFirst/03_development_workflow.md`
+	- `docs/00_ReadMeFirst/templates/current_sprint_template.md`
+	- Future `tools/docs/`
 
 - Improvement idea:
   - Add duplicate-checking to AI continuous improvement suggestions.
   - Source hat:
-    - Development Systems Architect
+	- Development Systems Architect
   - Friction / reason:
-    - AI may repeatedly suggest the same system improvements unless it checks existing notes first.
+	- AI may repeatedly suggest the same system improvements unless it checks existing notes first.
   - Suggested fix:
-    - AI should check this section, current sprint deferred notes, and future OS backlog before suggesting new improvements.
+	- AI should check this section, current sprint deferred notes, and future OS backlog before suggesting new improvements.
   - Review as:
-    - Development Systems Architect
+	- Development Systems Architect
   - Possible affected docs:
-    - `docs/00_ReadMeFirst/00_start_here.md`
-    - `docs/00_ReadMeFirst/03_development_workflow.md`
+	- `docs/00_ReadMeFirst/00_start_here.md`
+	- `docs/00_ReadMeFirst/03_development_workflow.md`
 
 ---
 
@@ -569,44 +570,44 @@ Use this section when docs should be updated later instead of interrupting activ
 
 - Documentation completed:
   - Reason:
-    - Finished remaining planning-doc review after player soul core documentation integration.
+	- Finished remaining planning-doc review after player soul core documentation integration.
   - Updated docs:
-    - `docs/planning/roadmap.md`
-    - `docs/planning/sky_time_map.md`
+	- `docs/planning/roadmap.md`
+	- `docs/planning/sky_time_map.md`
   - Source hat:
-    - Development Systems Architect
-    - Documentation Architect
+	- Development Systems Architect
+	- Documentation Architect
   - Status:
-    - Completed.
+	- Completed.
 
 - Documentation TODO:
   - Reason:
-    - Remaining placeholder docs need content or review.
+	- Remaining placeholder docs need content or review.
   - Affected docs:
-    - `docs/game_flow/boot_flow.md`
-    - `docs/game_flow/inventory.md`
-    - `docs/game_flow/main_menu.md`
-    - `docs/game_flow/paused.md`
-    - `docs/planning/sky_time_map.md`
+	- `docs/game_flow/boot_flow.md`
+	- `docs/game_flow/inventory.md`
+	- `docs/game_flow/main_menu.md`
+	- `docs/game_flow/paused.md`
+	- `docs/planning/sky_time_map.md`
   - Source hat:
-    - Documentation Architect
+	- Documentation Architect
   - Review as:
-    - Documentation Architect
+	- Documentation Architect
   - Status:
-    - Open.
+	- Open.
 
 - Documentation TODO:
   - Reason:
-    - `docs/planning/roadmap.md` may contain stale branch/focus references.
+	- `docs/planning/roadmap.md` may contain stale branch/focus references.
   - Affected docs:
-    - `docs/planning/roadmap.md`
+	- `docs/planning/roadmap.md`
   - Source hat:
-    - Documentation Architect
+	- Documentation Architect
   - Review as:
-    - Project Manager
-    - Documentation Architect
+	- Project Manager
+	- Documentation Architect
   - Status:
-    - Open.
+	- Open.
 
 ---
 
@@ -619,39 +620,39 @@ Long or historically important work should become a devlog under `docs/01_devlog
 - Date:
   - Current documentation operating-system pass.
   - Active hat:
-    - Development Systems Architect
-    - Documentation Architect
-    - Git / Integration Operator
+	- Development Systems Architect
+	- Documentation Architect
+	- Git / Integration Operator
   - Goal:
-    - Build the AltarSky Developer Operating System enough to guide future AI/user work.
+	- Build the AltarSky Developer Operating System enough to guide future AI/user work.
   - Completed:
-    - Fixed repo path confusion.
-    - Reorganized docs.
-    - Created start-here router.
-    - Created documentation guide structure.
-    - Created project document map.
-    - Created development workflow.
-    - Created current sprint template.
+	- Fixed repo path confusion.
+	- Reorganized docs.
+	- Created start-here router.
+	- Created documentation guide structure.
+	- Created project document map.
+	- Created development workflow.
+	- Created current sprint template.
   - Decisions:
-    - Pause game development until the Developer Operating System is working as expected.
-    - Use repo docs as source of truth.
-    - Use hats/work modes to control abstraction.
-    - Use current sprint as temporary parking lot for ideas, OS improvements, and documentation TODOs.
+	- Pause game development until the Developer Operating System is working as expected.
+	- Use repo docs as source of truth.
+	- Use hats/work modes to control abstraction.
+	- Use current sprint as temporary parking lot for ideas, OS improvements, and documentation TODOs.
   - Blockers:
-    - Player soul core doc has been created and integrated into release tracker, game-flow docs, player/projectile/UI docs, and sky-system docs; remaining review is limited to planning docs.
-    - Current sprint still needs validation after rebuild.
+	- Player soul core doc has been created and integrated into release tracker, game-flow docs, player/projectile/UI docs, and sky-system docs; remaining review is limited to planning docs.
+	- Current sprint still needs validation after rebuild.
   - Ideas parked:
-    - Future scene maps.
-    - Future new maintainer onboarding.
-    - Future local helper tools.
-    - Future dedicated idea inbox.
+	- Future scene maps.
+	- Future new maintainer onboarding.
+	- Future local helper tools.
+	- Future dedicated idea inbox.
   - Documentation TODOs:
-    - Review remaining planning docs affected by player soul core direction.
-    - Initial player soul core planning-doc review completed.
-    - Review placeholder docs.
+	- Review remaining planning docs affected by player soul core direction.
+	- Initial player soul core planning-doc review completed.
+	- Review placeholder docs.
   - Next step:
-    - Save and commit rebuilt `docs/sprints/current_sprint.md`.
-    - Then run the initial Developer Operating System validation pass.
+	- Save and commit rebuilt `docs/sprints/current_sprint.md`.
+	- Then run the initial Developer Operating System validation pass.
 
 ---
 
@@ -664,41 +665,41 @@ Validation notes:
 - Test:
   - AI routing from `00_start_here.md`
   - Environment:
-    - ChatGPT project conversation using repo docs as source of truth.
+	- ChatGPT project conversation using repo docs as source of truth.
   - Expected:
-    - AI should identify hat/work mode and route to correct docs.
+	- AI should identify hat/work mode and route to correct docs.
   - Actual:
-    - TODO
+	- TODO
   - Result:
-    - Pending.
+	- Pending.
   - Follow-up:
-    - Run validation prompts from `docs/00_ReadMeFirst/03_development_workflow.md`.
+	- Run validation prompts from `docs/00_ReadMeFirst/03_development_workflow.md`.
 
 - Test:
   - Hat switching
   - Environment:
-    - ChatGPT project conversation.
+	- ChatGPT project conversation.
   - Expected:
-    - User says "I am switching to X hat"; AI runs startup/handoff logic.
+	- User says "I am switching to X hat"; AI runs startup/handoff logic.
   - Actual:
-    - TODO
+	- TODO
   - Result:
-    - Pending.
+	- Pending.
   - Follow-up:
-    - Test Developer, Visionary, Documentation Architect, and Git / Integration Operator transitions.
+	- Test Developer, Visionary, Documentation Architect, and Git / Integration Operator transitions.
 
 - Test:
   - Documentation deferral and idea parking
   - Environment:
-    - ChatGPT project conversation.
+	- ChatGPT project conversation.
   - Expected:
-    - AI parks ideas or doc TODOs instead of derailing active work.
+	- AI parks ideas or doc TODOs instead of derailing active work.
   - Actual:
-    - TODO
+	- TODO
   - Result:
-    - Pending.
+	- Pending.
   - Follow-up:
-    - Test during a fake Developer Hat session.
+	- Test during a fake Developer Hat session.
 
 ---
 
@@ -708,23 +709,23 @@ Use this section to track branch, commit, merge, push, or repo safety notes.
 
 - Git note:
   - Branch:
-    - `feature/pre-alpha-0.1-sky-layer-manager-depth-lighting`
+	- `feature/pre-alpha-0.1-sky-layer-manager-depth-lighting`
   - Status:
-    - Clean before rebuilding current sprint document.
+	- Clean before rebuilding current sprint document.
   - Commit(s):
-    - Documentation structure cleanup committed.
-    - Debug console logging overhaul committed.
-    - Sky layer movement/drift controls committed.
-    - Prototype fire interval tuning committed.
-    - Developer OS scaffold committed.
-    - Start-here routing doc committed.
-    - Project document map committed.
-    - Development workflow committed.
-    - Current sprint template committed.
+	- Documentation structure cleanup committed.
+	- Debug console logging overhaul committed.
+	- Sky layer movement/drift controls committed.
+	- Prototype fire interval tuning committed.
+	- Developer OS scaffold committed.
+	- Start-here routing doc committed.
+	- Project document map committed.
+	- Development workflow committed.
+	- Current sprint template committed.
   - Push status:
-    - Pushed before current sprint rebuild.
+	- Pushed before current sprint rebuild.
   - Follow-up:
-    - Commit and push current sprint rebuild separately.
+	- Commit and push current sprint rebuild separately.
 
 ---
 
@@ -831,11 +832,11 @@ Archive notes:
 
 - Closeout note:
   - Moved to:
-    - TODO
+	- TODO
   - Reason:
-    - TODO
+	- TODO
   - Follow-up:
-    - TODO
+	- TODO
 
 ---
 

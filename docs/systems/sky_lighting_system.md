@@ -71,7 +71,7 @@ Current structure:
 ```text
 Main
 └── CanvasLayer_Background
-    └── SkySystem
+	└── SkySystem
 ```
 
 The CanvasLayer prevents the sky from being affected by Camera2D zoom.
